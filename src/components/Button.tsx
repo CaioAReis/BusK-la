@@ -14,7 +14,12 @@ export const Button = forwardRef<TouchableOpacity, ButtonProps>(
     const styles = useStyles();
 
     return (
-      <TouchableOpacity ref={ref} {...touchableProps} style={[styles.button, touchableProps.style]}>
+      <TouchableOpacity
+        ref={ref}
+        activeOpacity={0.8}
+        {...touchableProps}
+        style={[styles.button, touchableProps.style]}
+      >
         <Text fontSize={16} textAlign="center" color="bg100" fontWeight="700">
           {children}
         </Text>

@@ -3,6 +3,7 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 
 import { Dot, Button, Box, Text } from "@/components";
 import { height, width } from "@/utils/constants/device";
+import { router } from "expo-router";
 
 const Step1 = () => (
   <Box px="md" width={width} alignItems="center">
@@ -62,7 +63,7 @@ const Step3 = () => (
 );
 
 export default function Welcome() {
-  // const __scrollRef = useRef<ScrollView | undefined>();
+  const __scrollRef = useRef<ScrollView | null>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const updateStep = (scrollPosition: number) => {
@@ -71,9 +72,10 @@ export default function Welcome() {
   };
 
   const jumpStep = () => {
-    if (currentStep < 2) return; // pular scroll
+    if (currentStep < 2)
+      return __scrollRef.current?.scrollTo({ x: width * (currentStep + 1), animated: true });
 
-    // Proxima pagina
+    router.push("/(tabs)/two");
   };
 
   return (
@@ -87,10 +89,11 @@ export default function Welcome() {
       <ScrollView
         horizontal
         pagingEnabled
-        // ref={__scrollRef}
+        ref={__scrollRef}
         showsHorizontalScrollIndicator={false}
         style={{ width, maxHeight: height / 1.6 }}
-        onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}>
+        onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
+      >
         <Step1 />
         <Step2 />
         <Step3 />
