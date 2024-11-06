@@ -15,9 +15,16 @@ const darkTheme = createTheme({
   borderRadii: borderRadius,
   textVariants: {
     body: { fontSize: 16 },
-    title: { fontSize: 20, fontWeight: "bold" },
+
+    300: { fontFamily: "Rubik_300Light" },
+    400: { fontFamily: "Rubik_400Regular" },
+    500: { fontFamily: "Rubik_500Medium" },
+    600: { fontFamily: "Rubik_600SemiBold" },
+    700: { fontFamily: "Rubik_700Bold" },
+
     defaults: {
       color: "color100",
+      fontFamily: "Rubik_400Regular",
     },
   },
 });
@@ -28,9 +35,16 @@ const lightTheme = createTheme({
   borderRadii: borderRadius,
   textVariants: {
     body: { fontSize: 16 },
-    title: { fontSize: 20, fontWeight: "bold" },
+
+    300: { fontFamily: "Rubik_300Light" },
+    400: { fontFamily: "Rubik_400Regular" },
+    500: { fontFamily: "Rubik_500Medium" },
+    600: { fontFamily: "Rubik_600SemiBold" },
+    700: { fontFamily: "Rubik_700Bold" },
+
     defaults: {
       color: "color100",
+      fontFamily: "Rubik_400Regular",
     },
   },
 });

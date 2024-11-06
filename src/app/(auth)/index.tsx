@@ -1,9 +1,9 @@
+import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { Image, ScrollView, StyleSheet } from "react-native";
 
 import { Dot, Button, Box, Text } from "@/components";
 import { height, width } from "@/utils/constants/device";
-import { router } from "expo-router";
 
 const Step1 = () => (
   <Box px="md" width={width} alignItems="center">
@@ -14,8 +14,11 @@ const Step1 = () => (
     />
 
     <Box gap="lg" width="100%">
-      <Text fontWeight="500" fontSize={40} color="color200">
-        Boas vindas ao <Text color="primary300">{"\nBusk Lá"}</Text>
+      <Text variant={700} fontSize={35} color="color200">
+        Boas vindas ao{" "}
+        <Text variant={700} color="primary300">
+          {"\nBusk Lá"}
+        </Text>
       </Text>
       <Text fontSize={18} color="color300">
         Sua solução rápida e prática para entregas em qualquer lugar.
@@ -33,7 +36,7 @@ const Step2 = () => (
     />
 
     <Box gap="lg" width="100%">
-      <Text fontWeight="500" fontSize={40} color="color200">
+      <Text variant={500} fontSize={35} color="color200">
         {"Entregue \nqualquer item"}
       </Text>
       <Text fontSize={18} color="color300">
@@ -52,7 +55,7 @@ const Step3 = () => (
     />
 
     <Box gap="lg" width="100%">
-      <Text fontWeight="500" fontSize={40} color="color200">
+      <Text variant={500} fontSize={35} color="color200">
         {"Crie sua conta \nou faça login"}
       </Text>
       <Text fontSize={18} color="color300">
@@ -75,7 +78,7 @@ export default function Welcome() {
     if (currentStep < 2)
       return __scrollRef.current?.scrollTo({ x: width * (currentStep + 1), animated: true });
 
-    router.push("/(tabs)/two");
+    router.push("/authCode");
   };
 
   return (

@@ -22,6 +22,18 @@ const light_pallet = {
   secondary300: "#FBC02D",
   secondary400: "#c89924",
   secondary500: "#96731b",
+
+  error100: "#ef9285",
+  error200: "#ea6e5d",
+  error300: "#e54a35",
+  error400: "#b73b2a",
+  error500: "#892c1f",
+
+  success100: "#7cd09d",
+  success200: "#51c17d",
+  success300: "#26b25d",
+  success400: "#1e8e4a",
+  success500: "#166a37",
 };
 
 const dark_pallet = {
@@ -48,6 +60,18 @@ const dark_pallet = {
   secondary300: "#FBC02D",
   secondary400: "#fbcc56",
   secondary500: "#fcd981",
+
+  error100: "#892c1f",
+  error200: "#b73b2a",
+  error300: "#e54a35",
+  error400: "#ea6e5d",
+  error500: "#ef9285",
+
+  success100: "#166a37",
+  success200: "#1e8e4a",
+  success300: "#26b25d",
+  success400: "#51c17d",
+  success500: "#7cd09d",
 };
 
 export { light_pallet, dark_pallet };
