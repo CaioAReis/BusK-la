@@ -1,16 +1,17 @@
-import { Link, Stack } from 'expo-router';
-import { Box, Text, makeStyles } from 'theme';
+import { Link, Stack } from "expo-router";
+
+import { Box, Text, makeStyles } from "@/theme";
 
 export default function NotFoundScreen() {
   const styles = useStyles();
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
+      <Stack.Screen options={{ title: "Oops!" }} />
+      <Box flex={1} justifyContent="center" alignItems="center" padding="md">
         <Text variant="title">This screen doesn't exist.</Text>
         <Link href="/" style={styles.link}>
-          <Text variant="body" color="blue">
+          <Text variant="body" color="bg100">
             Go to home screen!
           </Text>
         </Link>
@@ -21,7 +22,7 @@ export default function NotFoundScreen() {
 
 const useStyles = makeStyles((theme) => ({
   link: {
-    marginTop: theme.spacing.m_16,
-    paddingVertical: theme.spacing.m_16,
+    marginTop: theme.spacing.ms,
+    paddingVertical: theme.spacing.ms,
   },
 }));
