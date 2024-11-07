@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useRef } from "react";
 import { TextInput, TextInputProps } from "react-native";
 
 import Box from "./Box";
@@ -6,18 +6,31 @@ import Text from "./Text";
 
 import { makeStyles } from "@/theme";
 
-type InputProps = { right?: ReactElement; isInvalid?: string } & TextInputProps;
+type InputProps = { right?: ReactElement; label?: string; isInvalid?: string } & TextInputProps;
 
-export function Input({ right: Right, isInvalid, ...textInputProps }: InputProps) {
+export function Input({ right: Right, label, isInvalid, ...textInputProps }: InputProps) {
   const styles = useStyles();
+  const __inputRef = useRef<TextInput>(null);
 
   return (
     <Box gap="sm">
+      {label && (
+        <Text
+          mb="xs"
+          variant={500}
+          fontSize={16}
+          color="color300"
+          onPress={() => __inputRef.current?.focus()}
+        >
+          {label}
+        </Text>
+      )}
+
       <Box
         pl="md"
         gap="sm"
         overflow="hidden"
-        borderRadius="lg"
+        borderRadius="ms"
         flexDirection="row"
         alignItems="center"
         backgroundColor="bg100"
@@ -26,6 +39,7 @@ export function Input({ right: Right, isInvalid, ...textInputProps }: InputProps
       >
         {Right}
         <TextInput
+          ref={__inputRef}
           {...textInputProps}
           placeholderTextColor={styles.place.color}
           style={[styles.input, textInputProps.style, isInvalid ? styles.colorError : styles.color]}
@@ -44,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   input: {
     flex: 1,
     fontSize: 14,
-    fontFamily: "Rubik_500Medium",
+    fontFamily: "Rubik_400Regular",
     paddingVertical: theme.spacing.md,
     paddingHorizontal: theme.spacing.sm,
     backgroundColor: theme.colors.bg100,

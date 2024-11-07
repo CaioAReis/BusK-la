@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { useForm, Controller, Control, FieldErrors } from "react-hook-form";
 import { Image, ScrollView, StyleSheet } from "react-native";
@@ -5,6 +6,7 @@ import { Image, ScrollView, StyleSheet } from "react-native";
 import { Box, Button, IconButton, Input, Text } from "@/components";
 import { width } from "@/utils/constants/device";
 import { phoneMask } from "@/utils/constants/masks";
+import { validate } from "@/utils/constants/validations";
 
 const imageSize = width / 1.4;
 
@@ -42,7 +44,10 @@ const Step1 = ({ control, errors }: StepProps) => (
     <Controller
       name="phone"
       control={control}
-      rules={{ required: "Seu telefone é obrigatório" }}
+      rules={{
+        required: "Seu telefone é obrigatório",
+        pattern: { value: validate.PHONE, message: "Tefelone Inválido" },
+      }}
       render={({ field: { onChange, onBlur, value } }) => (
         <Input
           maxLength={15}
@@ -143,6 +148,7 @@ export default function AuthCode() {
     }
 
     console.warn(data);
+    router.push("/createAccount");
   };
 
   const updateStep = (scrollPosition: number) => {

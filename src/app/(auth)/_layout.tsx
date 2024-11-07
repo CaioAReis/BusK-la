@@ -5,6 +5,7 @@ export default function RootLayout() {
     <Stack initialRouteName="index" screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
       <Stack.Screen name="authCode" />
+      <Stack.Screen name="createAccount" />
     </Stack>
   );
 }

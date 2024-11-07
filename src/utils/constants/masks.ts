@@ -28,6 +28,14 @@ const phoneMask = (e: string) => {
     .replace(/(\d{4})/, "$1");
 };
 
+const CPFMask = (e: string) =>
+  e
+    .replace(/\D/g, "")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d)/, "$1.$2")
+    .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+    .replace(/(-\d{2})\d+?$/, "$1");
+
 const validateCPF = (cpf: string) => {
   cpf = cpf.replace(/[^\d]+/g, "");
   if (cpf === "") return false;
@@ -58,4 +66,4 @@ const validateCPF = (cpf: string) => {
   return true;
 };
 
-export { isoDate, onlyDate, phoneMask, dateMask, validateCPF };
+export { isoDate, onlyDate, CPFMask, phoneMask, dateMask, validateCPF };
