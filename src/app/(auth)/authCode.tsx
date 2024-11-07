@@ -1,13 +1,25 @@
-import { ArrowLeft } from "lucide-react-native";
 import { useRef, useState } from "react";
+import { useForm, Controller, Control, FieldErrors } from "react-hook-form";
 import { Image, ScrollView, StyleSheet } from "react-native";
 
 import { Box, Button, IconButton, Input, Text } from "@/components";
 import { width } from "@/utils/constants/device";
+import { phoneMask } from "@/utils/constants/masks";
 
 const imageSize = width / 1.4;
 
-const Step1 = () => (
+type FormData = {
+  phone: string;
+  code: string;
+};
+
+type StepProps = {
+  isHidden?: boolean;
+  control: Control<FormData>;
+  errors: FieldErrors<FormData>;
+};
+
+const Step1 = ({ control, errors }: StepProps) => (
   <Box px="ml" gap="lg" flex={1} width={width}>
     <Image
       resizeMode="contain"
@@ -27,13 +39,26 @@ const Step1 = () => (
       </Text>
     </Box>
 
-    <Input
-      placeholder="Número de Telefone"
-      right={
-        <Text fontSize={14} variant={600} color="primary300">
-          +55
-        </Text>
-      }
+    <Controller
+      name="phone"
+      control={control}
+      rules={{ required: "Seu telefone é obrigatório" }}
+      render={({ field: { onChange, onBlur, value } }) => (
+        <Input
+          maxLength={15}
+          onBlur={onBlur}
+          onChangeText={onChange}
+          value={phoneMask(value)}
+          keyboardType="number-pad"
+          placeholder="Número de Telefone"
+          isInvalid={errors.phone?.message}
+          right={
+            <Text fontSize={14} variant={600} color="primary300">
+              +55
+            </Text>
+          }
+        />
+      )}
     />
 
     <Text textAlign="center" color="color300">
@@ -45,7 +70,7 @@ const Step1 = () => (
   </Box>
 );
 
-const Step2 = () => (
+const Step2 = ({ control, errors, isHidden }: StepProps) => (
   <Box px="ml" gap="lg" flex={1} width={width}>
     <Image
       resizeMode="contain"
@@ -65,7 +90,29 @@ const Step2 = () => (
       </Text>
     </Box>
 
-    <Input maxLength={6} placeholder="******" style={{ textAlign: "center", letterSpacing: 12 }} />
+    {!isHidden && (
+      <Controller
+        name="code"
+        control={control}
+        rules={{
+          required: "Seu telefone é obrigatório",
+          minLength: { value: 6, message: "O código deve ter 6 dígitos" },
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <Input
+            maxLength={6}
+            value={value}
+            onBlur={onBlur}
+            placeholder="******"
+            keyboardType="numeric"
+            autoComplete="sms-otp"
+            isInvalid={errors.code?.message}
+            style={{ textAlign: "center", letterSpacing: 12 }}
+            onChangeText={(v) => onChange(v.replace(/\D/g, ""))}
+          />
+        )}
+      />
+    )}
 
     <Text textAlign="center" color="color300">
       Não recebeu o código?{" "}
@@ -79,6 +126,24 @@ const Step2 = () => (
 export default function AuthCode() {
   const __scrollRef = useRef<ScrollView | null>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({ defaultValues: { phone: "", code: "" } });
+
+  const onSubmit = (data: FormData) => {
+    if (currentStep === 0) {
+      return setCurrentStep((prev) => {
+        const result = prev + 1;
+        jumpStep(result);
+        return result;
+      });
+    }
+
+    console.warn(data);
+  };
 
   const updateStep = (scrollPosition: number) => {
     const result = (scrollPosition / width).toFixed(0);
@@ -116,12 +181,14 @@ export default function AuthCode() {
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
         >
-          <Step1 />
-          <Step2 />
+          <Step1 control={control} errors={errors} />
+          <Step2 control={control} errors={errors} isHidden={currentStep === 0} />
         </ScrollView>
 
         <Box px="md" mb="xl">
-          <Button>{currentStep === 0 ? "Enviar" : "Continuar"}</Button>
+          <Button onPress={handleSubmit(onSubmit)}>
+            {currentStep === 0 ? "Enviar" : "Continuar"}
+          </Button>
         </Box>
       </Box>
     </Box>

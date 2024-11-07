@@ -14,7 +14,11 @@ export function IconButton({ icon, size, color, ...touchableProps }: ButtonProps
   const LucideIcon = icons[icon];
 
   return (
-    <TouchableOpacity {...touchableProps} style={[styles.button, touchableProps.style]}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      {...touchableProps}
+      style={[styles.button, touchableProps.style]}
+    >
       <LucideIcon size={size ?? 28} color={color ? styles.userColor(color) : styles.defaultColor} />
     </TouchableOpacity>
   );
