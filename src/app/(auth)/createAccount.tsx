@@ -2,7 +2,7 @@ import { router } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { ScrollView } from "react-native";
 
-import { Box, Button, Icon, IconButton, Input, Text } from "@/components";
+import { BottomSheet, Box, Button, Icon, IconButton, Input, Text } from "@/components";
 import { CPFMask, dateMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
 
@@ -173,6 +173,18 @@ export default function CreateAccount() {
           <Button onPress={handleSubmit(onSubmit)} style={{ marginTop: 40 }}>
             Criar conta
           </Button>
+
+          {/* <BottomSheet
+            trigger={(props) => (
+              <Button {...props} style={{ marginTop: 40 }}>
+                Criar conta
+              </Button>
+            )}
+          >
+            <Box>
+              <Text>IUASHDIUHAISUDHIAUHSDIUHASIHDIAHUSDIHAISHDIHSD</Text>
+            </Box>
+          </BottomSheet> */}
         </Box>
       </Box>
     </ScrollView>

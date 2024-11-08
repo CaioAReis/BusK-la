@@ -6,11 +6,13 @@ import {
   Rubik_600SemiBold,
   Rubik_700Bold,
 } from "@expo-google-fonts/rubik";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { ThemeProvider } from "@shopify/restyle";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Box } from "@/components";
@@ -41,17 +43,21 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box flex={1} backgroundColor="bg200">
-        <SafeAreaView style={{ flex: 1 }}>
-          <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="(auth)" />
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-          </Stack>
-          <StatusBar backgroundColor={bgColor} style={isDark ? "light" : "dark"} />
-        </SafeAreaView>
-      </Box>
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider theme={theme}>
+        <BottomSheetModalProvider>
+          <Box flex={1} backgroundColor="bg200">
+            <SafeAreaView style={{ flex: 1 }}>
+              <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+                <Stack.Screen name="(auth)" />
+                <Stack.Screen name="(tabs)" />
+                <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+              </Stack>
+              <StatusBar backgroundColor={bgColor} style={isDark ? "light" : "dark"} />
+            </SafeAreaView>
+          </Box>
+        </BottomSheetModalProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
