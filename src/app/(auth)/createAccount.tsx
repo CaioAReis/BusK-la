@@ -2,7 +2,7 @@ import { router } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
 import { ScrollView } from "react-native";
 
-import { BottomSheet, Box, Button, Icon, IconButton, Input, Text } from "@/components";
+import { BottomSheet, Box, Button, Icon, IconButton, Input, Option, Text } from "@/components";
 import { CPFMask, dateMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
 
@@ -14,6 +14,13 @@ type FormData = {
   birthDate: string;
   vehicleType: string;
 };
+
+enum VehicleTypes {
+  BIKE = "Bicicleta",
+  MOTORCYCLE = "Moto",
+  CAR = "Carro",
+  TRUCK = "Caminhão",
+}
 
 export default function CreateAccount() {
   const {
@@ -156,17 +163,53 @@ export default function CreateAccount() {
           <Controller
             name="vehicleType"
             control={control}
-            rules={{ required: "O tipo de veículo é obrigatório" }}
+            rules={{ required: "Selecione um tipo" }}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                label="Tipo de veículo"
-                placeholder="Tipo de veículo"
-                isInvalid={errors.vehicleType?.message}
-                right={<Icon icon="Car" color="primary300" my="ms" />}
-              />
+              <BottomSheet
+                trigger={(props) => (
+                  <Input
+                    {...props}
+                    value={value}
+                    onBlur={onBlur}
+                    editable={false}
+                    onChangeText={onChange}
+                    label="Tipo de veículo"
+                    placeholder="Tipo de veículo"
+                    isInvalid={errors.vehicleType?.message}
+                    right={<Icon icon="Car" color="primary300" my="ms" />}
+                  />
+                )}
+              >
+                <Box borderRadius="md" overflow="hidden" mt="md">
+                  <Option
+                    selected={value === VehicleTypes.BIKE}
+                    onPress={() => onChange(VehicleTypes.BIKE)}
+                  >
+                    Bicicleta
+                  </Option>
+
+                  <Option
+                    selected={value === VehicleTypes.MOTORCYCLE}
+                    onPress={() => onChange(VehicleTypes.MOTORCYCLE)}
+                  >
+                    Moto
+                  </Option>
+
+                  <Option
+                    selected={value === VehicleTypes.CAR}
+                    onPress={() => onChange(VehicleTypes.CAR)}
+                  >
+                    Carro
+                  </Option>
+
+                  <Option
+                    selected={value === VehicleTypes.TRUCK}
+                    onPress={() => onChange(VehicleTypes.TRUCK)}
+                  >
+                    Caminhão
+                  </Option>
+                </Box>
+              </BottomSheet>
             )}
           />
 

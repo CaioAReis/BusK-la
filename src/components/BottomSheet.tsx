@@ -1,15 +1,20 @@
 import { BottomSheetBackdrop, BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
 import { BottomSheetDefaultBackdropProps } from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types";
-import { ReactElement, useCallback, useRef } from "react";
+import { forwardRef, ReactElement, useCallback, useRef } from "react";
 
 import { makeStyles } from "@/theme";
 import { height } from "@/utils/constants/device";
 
 type BottomSheetProps = {
   snapPoints?: number[];
+  ref?: BottomSheetModal;
   children: ReactElement;
   trigger: JSX.ElementType;
 };
+
+// const BodyRef = forwardRef<BottomSheetModal, BottomSheetProps>(({ children, ref }) => {
+//   return <BottomSheetView style={{ flex: 1 }}>{children}</BottomSheetView>;
+// });
 
 export function BottomSheet({ children, snapPoints, trigger: Trigger }: BottomSheetProps) {
   const styles = useStyles();

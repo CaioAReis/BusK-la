@@ -11,7 +11,7 @@ const light_pallet = {
   color400: "#646467",
   color500: "#7a7a7d",
 
-  primary100: "#89b5ff",
+  primary100: "#accbff",
   primary200: "#629dff",
   primary300: "#3B85FF",
   primary400: "#2f6acc",
@@ -53,7 +53,7 @@ const dark_pallet = {
   primary200: "#2f6acc",
   primary300: "#3B85FF",
   primary400: "#629dff",
-  primary500: "#89b5ff",
+  primary500: "#accbff",
 
   secondary100: "#96731b",
   secondary200: "#c89924",
