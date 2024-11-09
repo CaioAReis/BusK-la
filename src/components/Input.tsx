@@ -41,8 +41,13 @@ export function Input({ right: Right, label, isInvalid, ...textInputProps }: Inp
         <TextInput
           ref={__inputRef}
           {...textInputProps}
-          placeholderTextColor={styles.place.color}
-          style={[styles.input, textInputProps.style, isInvalid ? styles.colorError : styles.color]}
+          cursorColor={styles.cursorColor}
+          placeholderTextColor={styles.place}
+          style={[
+            styles.input,
+            textInputProps.style,
+            { color: isInvalid ? styles.colorError : styles.color },
+          ]}
         />
       </Box>
       {isInvalid && (
@@ -63,13 +68,8 @@ const useStyles = makeStyles((theme) => ({
     paddingHorizontal: theme.spacing.sm,
     backgroundColor: theme.colors.bg100,
   },
-  place: {
-    color: theme.colors.bg500,
-  },
-  colorError: {
-    color: theme.colors.error300,
-  },
-  color: {
-    color: theme.colors.color300,
-  },
+  place: theme.colors.bg500,
+  color: theme.colors.color300,
+  colorError: theme.colors.error300,
+  cursorColor: theme.colors.secondary100,
 }));

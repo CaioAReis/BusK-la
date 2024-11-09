@@ -1,39 +1,38 @@
-import { forwardRef } from "react";
+import {
+  spacing,
+  SpacingProps,
+  VariantProps,
+  createVariant,
+  createRestyleComponent,
+} from "@shopify/restyle";
 import { TouchableOpacity, TouchableOpacityProps } from "react-native";
 
 import Text from "./Text";
 
-import { makeStyles } from "@/theme";
+import { Theme } from "@/theme";
 
-type ButtonProps = {
-  children?: string;
-} & TouchableOpacityProps;
+type BoxCustomProps = SpacingProps<Theme> & VariantProps<Theme, "buttonVariants">;
 
-export const Button = forwardRef<TouchableOpacity, ButtonProps>(
-  ({ children, ...touchableProps }, ref) => {
-    const styles = useStyles();
+const Box = createRestyleComponent<BoxCustomProps, Theme>([
+  spacing,
+  createVariant({ themeKey: "buttonVariants" }),
+]);
 
-    return (
-      <TouchableOpacity
-        ref={ref}
-        activeOpacity={0.8}
-        {...touchableProps}
-        style={[styles.button, touchableProps.style]}
-      >
-        <Text fontSize={16} textAlign="center" color="bg100" variant={700}>
-          {children}
+type ButtonProps = { children?: string } & BoxCustomProps & TouchableOpacityProps;
+
+export const Button = (props: ButtonProps) => {
+  return (
+    <TouchableOpacity activeOpacity={0.8} {...props}>
+      <Box {...props}>
+        <Text
+          fontSize={16}
+          variant={700}
+          textAlign="center"
+          color={props.variant === "outline" || props.variant === "text" ? "primary300" : "bg100"}
+        >
+          {props.children}
         </Text>
-      </TouchableOpacity>
-    );
-  }
-);
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: theme.spacing.ms,
-    borderRadius: theme.borderRadii.xl,
-    backgroundColor: theme.colors.primary300,
-  },
-}));
+      </Box>
+    </TouchableOpacity>
+  );
+};

@@ -167,17 +167,28 @@ export default function CreateAccount() {
             render={({ field: { onChange, onBlur, value } }) => (
               <BottomSheet
                 trigger={(props) => (
-                  <Input
-                    {...props}
-                    value={value}
-                    onBlur={onBlur}
-                    editable={false}
-                    onChangeText={onChange}
-                    label="Tipo de veículo"
-                    placeholder="Tipo de veículo"
-                    isInvalid={errors.vehicleType?.message}
-                    right={<Icon icon="Car" color="primary300" my="ms" />}
-                  />
+                  <Box position="relative">
+                    <Input
+                      {...props}
+                      value={value}
+                      onBlur={onBlur}
+                      editable={false}
+                      onChangeText={onChange}
+                      label="Tipo de veículo"
+                      placeholder="Tipo de veículo"
+                      isInvalid={errors.vehicleType?.message}
+                      right={<Icon icon="Car" color="primary300" my="ms" />}
+                    />
+                    <Icon
+                      my="ms"
+                      top={32}
+                      size={24}
+                      right={12}
+                      icon="ChevronDown"
+                      color="color500"
+                      position="absolute"
+                    />
+                  </Box>
                 )}
               >
                 <Box borderRadius="md" overflow="hidden" mt="md">
@@ -213,21 +224,9 @@ export default function CreateAccount() {
             )}
           />
 
-          <Button onPress={handleSubmit(onSubmit)} style={{ marginTop: 40 }}>
+          <Button onPress={handleSubmit(onSubmit)} marginTop="lg">
             Criar conta
           </Button>
-
-          {/* <BottomSheet
-            trigger={(props) => (
-              <Button {...props} style={{ marginTop: 40 }}>
-                Criar conta
-              </Button>
-            )}
-          >
-            <Box>
-              <Text>IUASHDIUHAISUDHIAUHSDIUHASIHDIAHUSDIHAISHDIHSD</Text>
-            </Box>
-          </BottomSheet> */}
         </Box>
       </Box>
     </ScrollView>

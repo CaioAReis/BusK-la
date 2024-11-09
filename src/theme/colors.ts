@@ -34,6 +34,8 @@ const light_pallet = {
   success300: "#26b25d",
   success400: "#1e8e4a",
   success500: "#166a37",
+
+  transparent: "transparent",
 };
 
 const dark_pallet = {
@@ -72,6 +74,8 @@ const dark_pallet = {
   success300: "#26b25d",
   success400: "#51c17d",
   success500: "#7cd09d",
+
+  transparent: "transparent",
 };
 
 export { light_pallet, dark_pallet };
