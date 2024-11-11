@@ -27,13 +27,13 @@ export function Input({ right: Right, label, isInvalid, ...textInputProps }: Inp
       )}
 
       <Box
-        pl="md"
         gap="sm"
         overflow="hidden"
         borderRadius="ms"
         flexDirection="row"
         alignItems="center"
         backgroundColor="bg100"
+        pl={Right ? "md" : "xs"}
         borderWidth={isInvalid ? 1.5 : 0}
         borderColor={isInvalid ? "error300" : "bg100"}
       >

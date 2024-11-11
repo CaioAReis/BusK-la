@@ -1,6 +1,6 @@
 import { BottomSheetBackdrop, BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
 import { BottomSheetDefaultBackdropProps } from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types";
-import { ReactElement, useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 import { Button } from "./Button";
 
@@ -10,11 +10,15 @@ import { height } from "@/utils/constants/device";
 type BottomSheetProps = {
   snapPoints?: number[];
   ref?: BottomSheetModal;
-  children: ReactElement;
   trigger: JSX.ElementType;
+  children: JSX.ElementType;
 };
 
-export function BottomSheet({ children, snapPoints, trigger: Trigger }: BottomSheetProps) {
+export function BottomSheet({
+  snapPoints,
+  trigger: Trigger,
+  children: Children,
+}: BottomSheetProps) {
   const styles = useStyles();
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -46,7 +50,9 @@ export function BottomSheet({ children, snapPoints, trigger: Trigger }: BottomSh
         handleIndicatorStyle={styles.handle}
         snapPoints={snapPoints || [height / 1.8, height / 1.2]}
       >
-        <BottomSheetView style={{}}>{children}</BottomSheetView>
+        <BottomSheetView>
+          <Children handleCloseSheet={bottomSheetModalRef.current?.close} />
+        </BottomSheetView>
 
         <Button variant="text" onPress={handleCloseModalPress} marginTop="lg">
           Fechar

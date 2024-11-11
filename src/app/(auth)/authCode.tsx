@@ -1,10 +1,17 @@
 import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { useForm, Controller, Control, FieldErrors } from "react-hook-form";
-import { Image, ScrollView, StyleSheet } from "react-native";
+import {
+  Image,
+  Keyboard,
+  ScrollView,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+} from "react-native";
 
 import { Box, Button, IconButton, Input, Text } from "@/components";
-import { width } from "@/utils/constants/device";
+import { isAndroid, width } from "@/utils/constants/device";
 import { phoneMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
 
@@ -161,43 +168,52 @@ export default function AuthCode() {
   };
 
   return (
-    <Box backgroundColor="bg200" flex={1}>
-      <Box px="md" py="sm" alignItems="center" flexDirection="row" justifyContent="space-between">
-        {currentStep === 0 ? (
-          <Box width={44} />
-        ) : (
-          <IconButton icon="ArrowLeft" onPress={() => jumpStep(currentStep - 1)} />
-        )}
+    <KeyboardAvoidingView style={{ flex: 1 }} behavior={isAndroid ? "height" : "padding"}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Box backgroundColor="bg200" flex={1}>
+          <Box
+            px="md"
+            py="sm"
+            alignItems="center"
+            flexDirection="row"
+            justifyContent="space-between"
+          >
+            {currentStep === 0 ? (
+              <Box width={43} />
+            ) : (
+              <IconButton icon="ArrowLeft" onPress={() => jumpStep(currentStep - 1)} />
+            )}
 
-        <Image
-          resizeMode="contain"
-          style={styles.image}
-          source={require("@/assets/images/logo.png")}
-        />
+            <Image
+              resizeMode="contain"
+              style={styles.image}
+              source={require("@/assets/images/logo.png")}
+            />
 
-        <Box width={44} />
-      </Box>
+            <Box width={43} />
+          </Box>
 
-      <Box flex={1}>
-        <ScrollView
-          horizontal
-          pagingEnabled
-          ref={__scrollRef}
-          style={{ flex: 1 }}
-          showsHorizontalScrollIndicator={false}
-          onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
-        >
-          <Step1 control={control} errors={errors} />
-          <Step2 control={control} errors={errors} isHidden={currentStep === 0} />
-        </ScrollView>
+          <Box flex={1}>
+            <ScrollView
+              horizontal
+              pagingEnabled
+              ref={__scrollRef}
+              showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
+            >
+              <Step1 control={control} errors={errors} />
+              <Step2 control={control} errors={errors} isHidden={currentStep === 0} />
+            </ScrollView>
 
-        <Box px="md" mb="xl">
-          <Button onPress={handleSubmit(onSubmit)}>
-            {currentStep === 0 ? "Enviar" : "Continuar"}
-          </Button>
+            <Box px="md" flex={1}>
+              <Button onPress={handleSubmit(onSubmit)}>
+                {currentStep === 0 ? "Enviar" : "Continuar"}
+              </Button>
+            </Box>
+          </Box>
         </Box>
-      </Box>
-    </Box>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
