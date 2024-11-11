@@ -186,7 +186,7 @@ export default function CreateAccount() {
                         />
                         <Icon
                           my="ms"
-                          top={32}
+                          top="42%"
                           size={24}
                           right={12}
                           color="color500"
