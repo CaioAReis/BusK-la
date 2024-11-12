@@ -50,7 +50,7 @@ export default function CreateAccount() {
 
   const onSubmit = (data: FormData) => {
     console.warn(data);
-    // router.push("/createAccount");
+    router.push("/(tabs)");
   };
 
   return (

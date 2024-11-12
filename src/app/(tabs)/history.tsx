@@ -1,9 +1,10 @@
-import { Box, Text } from "@/theme";
+import { Box, Text } from "@/components";
+
 
 export default function Home() {
   return (
     <Box backgroundColor="bg200" flex={1}>
-      <Text variant="title">Charts</Text>
+      <Text variant={500}>Charts</Text>
       <Text>Charts</Text>
     </Box>
   );
