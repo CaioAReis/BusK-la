@@ -2,6 +2,11 @@ const isoDate = (e: string) => {
   return e ? new Date(e).toLocaleString() : new Date().toLocaleString();
 };
 
+const customDate = (e: Date) => {
+  const result = e.toLocaleDateString("pt-br", { day: "2-digit", month: "short", year: "numeric" });
+  return result;
+};
+
 const onlyDate = (e: string) => {
   return e ? new Date(e).toLocaleDateString() : new Date().toLocaleDateString();
 };
@@ -66,4 +71,4 @@ const validateCPF = (cpf: string) => {
   return true;
 };
 
-export { isoDate, onlyDate, CPFMask, phoneMask, dateMask, validateCPF };
+export { isoDate, onlyDate, CPFMask, phoneMask, dateMask, validateCPF, customDate };

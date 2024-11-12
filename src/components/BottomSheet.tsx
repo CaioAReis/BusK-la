@@ -1,4 +1,9 @@
-import { BottomSheetBackdrop, BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
+import {
+  BottomSheetView,
+  BottomSheetModal,
+  BottomSheetBackdrop,
+  BottomSheetScrollView,
+} from "@gorhom/bottom-sheet";
 import { BottomSheetDefaultBackdropProps } from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types";
 import { useCallback, useRef } from "react";
 
@@ -48,15 +53,17 @@ export function BottomSheet({
         backdropComponent={backdrop}
         backgroundStyle={styles.container}
         handleIndicatorStyle={styles.handle}
-        snapPoints={snapPoints || [height / 1.8, height / 1.2]}
+        snapPoints={snapPoints || [height / 1.8, height / 1.1]}
       >
-        <BottomSheetView>
-          <Children handleCloseSheet={bottomSheetModalRef.current?.close} />
-        </BottomSheetView>
+        <BottomSheetScrollView showsVerticalScrollIndicator={false}>
+          <BottomSheetView>
+            <Children handleCloseSheet={bottomSheetModalRef.current?.close} />
+          </BottomSheetView>
 
-        <Button variant="text" onPress={handleCloseModalPress} marginTop="lg">
-          Fechar
-        </Button>
+          <Button marginBottom="xl" variant="text" onPress={handleCloseModalPress} marginTop="lg">
+            Fechar
+          </Button>
+        </BottomSheetScrollView>
       </BottomSheetModal>
     </>
   );
@@ -69,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   teste: {
     paddingHorizontal: theme.spacing.md,
+    marginBpttom: 40,
   },
   handle: {
     height: 6,
