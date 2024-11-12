@@ -11,7 +11,7 @@ type SectionTitleProps = {
 
 export function SectionTitle({ title, icon }: SectionTitleProps) {
   return (
-    <Box mb="ml" flexDirection="row" alignItems="center" gap="ms">
+    <Box my="ml" flexDirection="row" alignItems="center" gap="ms">
       <Icon icon={icon ?? "Cat"} color="color300" />
       <Text variant={500} fontSize={20} color="color300">
         {title}

@@ -2,6 +2,7 @@ import { Avatar } from "./Avatar";
 import { BottomSheet } from "./BottomSheet";
 import Box from "./Box";
 import { Button } from "./Button";
+import { DeliveryCard } from "./DeliveryCard";
 import { Divider } from "./Divider";
 import { Dot } from "./Dot";
 import { Icon } from "./Icon";
@@ -27,6 +28,7 @@ export {
   IconButton,
   TabBarIcon,
   BottomSheet,
+  DeliveryCard,
   SectionTitle,
   Notifications,
   SelectPicture,

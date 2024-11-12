@@ -24,7 +24,7 @@ export function Notifications() {
       )}
     >
       {() => (
-        <Box borderRadius="md" overflow="hidden" mt="md">
+        <Box borderRadius="md" overflow="hidden">
           <SectionTitle icon="Bell" title="Notificações" />
 
           <Box gap="md">
