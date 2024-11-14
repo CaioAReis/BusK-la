@@ -1,25 +1,30 @@
 import Box from "./Box";
+import { Button } from "./Button";
 import { Icon } from "./Icon";
+import { StepsLine } from "./StepsLine";
 import Text from "./Text";
 
 import { customDate } from "@/utils/constants/masks";
-
-type DeliveryCardProps = {
-  code: string;
-  createdAt: Date;
-  address: string;
-  status: "pending" | "onway" | "delivered";
-};
+import { DeliveryCardProps } from "@/utils/types";
 
 const Status = {
-  pending: { label: "PENDENTE", color: "blue" },
-  onway: { label: "A CAMINHO", color: "purple" },
-  delivered: { label: "ENTREGUE", color: "green" },
+  0: { label: "PENDENTE", color: "blue" },
+  1: { label: "A CAMINHO", color: "purple" },
+  2: { label: "ENTREGUE", color: "green" },
 };
 
-export function DeliveryCard({ status = "pending" }: DeliveryCardProps) {
+export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardProps) {
   return (
-    <Box backgroundColor="bg100" my="sm" p="ms" borderRadius="md" gap="md">
+    <Box
+      p="ms"
+      my="sm"
+      gap="md"
+      borderWidth={2}
+      borderRadius="md"
+      borderColor="bg200"
+      backgroundColor="bg100"
+      {...boxProps}
+    >
       <Box flexDirection="row" justifyContent="space-between" alignItems="center">
         <Text variant={500} fontSize={16}>
           <Text variant={500} color="primary300">
@@ -27,19 +32,30 @@ export function DeliveryCard({ status = "pending" }: DeliveryCardProps) {
           </Text>
           DMO1PKTX24C
         </Text>
-        <Text color="color500">{customDate(new Date())}</Text>
+
+        {started ? (
+          <Button paddingVertical="xs" paddingHorizontal="ml">
+            Detalhes
+          </Button>
+        ) : (
+          <Text color="color500">{customDate(new Date())}</Text>
+        )}
       </Box>
 
-      <Box flexDirection="row" alignItems="center" justifyContent="space-between">
-        <Box flexDirection="row" alignItems="center" gap="sm">
-          <Icon icon="Clock" size={24} color="color500" />
-          <Text color="color500">Status</Text>
+      {started ? (
+        <StepsLine status={status} />
+      ) : (
+        <Box flexDirection="row" alignItems="center" justifyContent="space-between">
+          <Box flexDirection="row" alignItems="center" gap="sm">
+            <Icon icon="Clock" size={24} color="color500" />
+            <Text color="color500">Status</Text>
+          </Box>
+
+          <Text variant={500} color={Status[status]?.color as "color200"}>
+            {Status[status]?.label}
+          </Text>
         </Box>
-
-        <Text variant={500} color={Status[status]?.color as "color200"}>
-          {Status[status]?.label}
-        </Text>
-      </Box>
+      )}
 
       <Box gap="sm">
         <Box flexDirection="row" alignItems="center" gap="sm">

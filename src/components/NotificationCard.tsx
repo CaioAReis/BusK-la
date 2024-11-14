@@ -2,13 +2,7 @@ import Box from "./Box";
 import Text from "./Text";
 
 import { customDate } from "@/utils/constants/masks";
-
-type NotificationCardProps = {
-  body: string;
-  title: string;
-  isNew?: boolean;
-  createdAt: Date;
-};
+import { NotificationCardProps } from "@/utils/types";
 
 export function NotificationCard({ title, body, createdAt, isNew }: NotificationCardProps) {
   return (

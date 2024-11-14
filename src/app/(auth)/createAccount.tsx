@@ -22,15 +22,7 @@ import {
 } from "@/components";
 import { CPFMask, dateMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
-
-type FormData = {
-  doc: string;
-  name: string;
-  email: string;
-  picture: string;
-  birthDate: string;
-  vehicleType: string;
-};
+import { UserData } from "@/utils/types";
 
 enum VehicleTypes {
   BIKE = "Bicicleta",
@@ -44,11 +36,11 @@ export default function CreateAccount() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<UserData>({
     defaultValues: { doc: "", name: "", email: "", picture: "", birthDate: "", vehicleType: "" },
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: UserData) => {
     console.warn(data);
     router.push("/(tabs)");
   };

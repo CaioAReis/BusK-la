@@ -1,15 +1,9 @@
-import { BoxProps } from "@shopify/restyle";
 import { icons } from "lucide-react-native";
 
 import Box from "./Box";
 
 import { makeStyles, Theme } from "@/theme";
-
-type IconProps = {
-  size?: number;
-  icon: keyof typeof icons;
-  color?: keyof Theme["colors"];
-} & BoxProps<Theme>;
+import { IconProps } from "@/utils/types";
 
 export function Icon({ icon, size, color, ...boxProps }: IconProps) {
   const styles = useStyles();

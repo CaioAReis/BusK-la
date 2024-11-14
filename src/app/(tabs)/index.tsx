@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FlatList, Image } from "react-native";
 
 import {
@@ -8,16 +9,24 @@ import {
   SectionTitle,
   DeliveryCard,
   Notifications,
+  DeliveriesStarted,
 } from "@/components";
+// import { DeliveryCardProps } from "@/components/DeliveryCard";
 import { width } from "@/utils/constants/device";
+import { DATA } from "@/utils/data";
+import { DeliveryCardProps } from "@/utils/types";
 
 const imageSize = width / 1.4;
 
 export default function Home() {
+  const [list, setList] = useState<DeliveryCardProps[]>([]);
+
   return (
     <Box backgroundColor="bg200" flex={1} px="md">
       <FlatList
-        data={["", "", ""]}
+        data={list}
+        showsVerticalScrollIndicator={false}
+        ListFooterComponent={<Box height={90} />}
         renderItem={({ item }) => <DeliveryCard />}
         ListEmptyComponent={
           <Box>
@@ -51,6 +60,14 @@ export default function Home() {
               </Box>
 
               <Notifications />
+            </Box>
+
+            <Box>
+              <Divider color="bg300" />
+              <Box>
+                <SectionTitle icon="Package" title="Entregas Iniciadas" />
+                <DeliveriesStarted />
+              </Box>
             </Box>
 
             <Divider color="bg300" />

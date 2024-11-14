@@ -8,11 +8,7 @@ import { Icon } from "./Icon";
 import { Option } from "./Option";
 
 import { width } from "@/utils/constants/device";
-
-type SelectPictureProps = {
-  value: string;
-  onChange: (value: string) => void;
-};
+import { SelectPictureProps } from "@/utils/types";
 
 const configImagePicker: ImagePicker.ImagePickerOptions = {
   base64: true,

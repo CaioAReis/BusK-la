@@ -14,19 +14,9 @@ import { Box, Button, IconButton, Input, Text } from "@/components";
 import { isAndroid, width } from "@/utils/constants/device";
 import { phoneMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
+import { AuthPhone, StepProps } from "@/utils/types";
 
 const imageSize = width / 1.4;
-
-type FormData = {
-  phone: string;
-  code: string;
-};
-
-type StepProps = {
-  isHidden?: boolean;
-  control: Control<FormData>;
-  errors: FieldErrors<FormData>;
-};
 
 const Step1 = ({ control, errors }: StepProps) => (
   <Box px="ml" gap="lg" flex={1} width={width}>
@@ -143,9 +133,9 @@ export default function AuthCode() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ defaultValues: { phone: "", code: "" } });
+  } = useForm<AuthPhone>({ defaultValues: { phone: "", code: "" } });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: AuthPhone) => {
     if (currentStep === 0) {
       return setCurrentStep((prev) => {
         const result = prev + 1;

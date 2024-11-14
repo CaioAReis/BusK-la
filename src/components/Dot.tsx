@@ -1,15 +1,13 @@
 import Box from "./Box";
 
-type Props = {
-  selected: boolean;
-};
+import { DotProps } from "@/utils/types";
 
-export function Dot({ selected }: Props) {
+export function Dot({ width, height, selected }: DotProps) {
   return (
     <Box
-      width={8}
-      height={8}
       borderRadius="lg"
+      width={width ?? 8}
+      height={height ?? 8}
       backgroundColor={selected ? "primary300" : "bg400"}
     />
   );

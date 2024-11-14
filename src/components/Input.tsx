@@ -1,12 +1,11 @@
-import { ReactElement, useRef } from "react";
-import { TextInput, TextInputProps } from "react-native";
+import { useRef } from "react";
+import { TextInput } from "react-native";
 
 import Box from "./Box";
 import Text from "./Text";
 
 import { makeStyles } from "@/theme";
-
-type InputProps = { right?: ReactElement; label?: string; isInvalid?: string } & TextInputProps;
+import { InputProps } from "@/utils/types";
 
 export function Input({ right: Right, label, isInvalid, ...textInputProps }: InputProps) {
   const styles = useStyles();

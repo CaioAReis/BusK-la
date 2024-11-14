@@ -1,13 +1,8 @@
-import { icons } from "lucide-react-native";
-
 import Box from "./Box";
 import { Icon } from "./Icon";
 import Text from "./Text";
 
-type SectionTitleProps = {
-  title: string;
-  icon: keyof typeof icons;
-};
+import { SectionTitleProps } from "@/utils/types";
 
 export function SectionTitle({ title, icon }: SectionTitleProps) {
   return (

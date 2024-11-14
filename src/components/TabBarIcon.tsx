@@ -1,13 +1,7 @@
-import { icons } from "lucide-react-native";
-
 import Box from "./Box";
 import { Icon } from "./Icon";
 
-type TabBarIconProps = {
-  name: string;
-  focused: boolean;
-  icon: keyof typeof icons;
-};
+import { TabBarIconProps } from "@/utils/types";
 
 export function TabBarIcon({ icon, focused }: TabBarIconProps) {
   return (

@@ -11,13 +11,7 @@ import { Button } from "./Button";
 
 import { makeStyles } from "@/theme";
 import { height } from "@/utils/constants/device";
-
-type BottomSheetProps = {
-  snapPoints?: number[];
-  ref?: BottomSheetModal;
-  trigger: JSX.ElementType;
-  children: JSX.ElementType;
-};
+import { BottomSheetProps } from "@/utils/types";
 
 export function BottomSheet({
   snapPoints,

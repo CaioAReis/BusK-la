@@ -1,15 +1,10 @@
-import { icons } from "lucide-react-native";
-import { TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import Box from "./Box";
 import { Icon } from "./Icon";
 import Text from "./Text";
 
-type OptionProps = {
-  children: string;
-  selected: boolean;
-  leftIcon?: keyof typeof icons;
-} & TouchableOpacityProps;
+import { OptionProps } from "@/utils/types";
 
 export function Option({ children, leftIcon, selected, ...touchableProps }: OptionProps) {
   const color = selected ? "primary300" : "color300";

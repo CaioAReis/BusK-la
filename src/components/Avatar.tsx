@@ -1,10 +1,7 @@
 import Box from "./Box";
 import Text from "./Text";
 
-type AvatarProps = {
-  size?: number;
-  name: string;
-};
+import { AvatarProps } from "@/utils/types";
 
 export function Avatar({ name, size }: AvatarProps) {
   return (
