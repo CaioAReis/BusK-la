@@ -13,11 +13,17 @@ const Status = {
   2: { label: "ENTREGUE", color: "green" },
 };
 
+const AddressLabel = {
+  0: "Coleta",
+  1: "Levando para",
+  2: "Entregue em",
+}
+
 export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardProps) {
   return (
     <Box
       p="ms"
-      my="sm"
+      mb="sm"
       gap="md"
       borderWidth={2}
       borderRadius="md"
@@ -60,7 +66,7 @@ export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardP
       <Box gap="sm">
         <Box flexDirection="row" alignItems="center" gap="sm">
           <Icon icon="MapPin" size={24} color="color500" />
-          <Text color="color500">Coleta</Text>
+          <Text color="color500">{AddressLabel[status]}</Text>
         </Box>
 
         <Text variant={500} textAlign="center" color="primary300">

@@ -44,6 +44,7 @@ export default function TabLayout() {
 
 const useStyles = makeStyles((theme) => ({
   tabBarStyle: {
+    height: 70,
     borderTopWidth: 2,
     backgroundColor: theme.colors.bg100,
     borderTopColor: theme.colors.primary300,
