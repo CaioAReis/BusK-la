@@ -65,7 +65,7 @@ export type DeliveriesStartedProps = {
 export type DividerProps = {
   color?: keyof Theme["colors"];
   width?: ResponsiveValue<DimensionValue | undefined, undefined>;
-};
+} & BoxProps<Theme>;
 
 export type DotProps = {
   width?: number;
@@ -101,8 +101,10 @@ export type NotificationCardProps = {
 
 export type OptionProps = {
   children: string;
-  selected: boolean;
+  selected?: boolean;
+  right?: ReactElement;
   leftIcon?: keyof typeof icons;
+  color?: keyof Theme["colors"];
 } & TouchableOpacityProps;
 
 export type SectionTitleProps = {
