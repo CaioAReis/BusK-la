@@ -44,6 +44,8 @@ export type AvatarProps = {
 };
 
 export type BottomSheetProps = {
+  onOpen?: () => void;
+  onClose?: () => void;
   snapPoints?: number[];
   ref?: BottomSheetModal;
   trigger: JSX.ElementType;
@@ -93,6 +95,7 @@ export type InputProps = {
 } & TextInputProps;
 
 export type NotificationCardProps = {
+  _id?: string;
   body: string;
   title: string;
   isNew?: boolean;

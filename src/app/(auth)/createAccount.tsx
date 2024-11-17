@@ -1,4 +1,5 @@
 import { router } from "expo-router";
+import { useContext } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
   Keyboard,
@@ -20,8 +21,10 @@ import {
   BottomSheet,
   SelectPicture,
 } from "@/components";
+import { API } from "@/services/api";
 import { CPFMask, dateMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
+import AppContext from "@/utils/contexts/AppContext";
 import { UserData } from "@/utils/types";
 
 enum VehicleTypes {
@@ -32,6 +35,8 @@ enum VehicleTypes {
 }
 
 export default function CreateAccount() {
+  const { setIsLoading, setSession } = useContext(AppContext);
+
   const {
     control,
     handleSubmit,
@@ -41,8 +46,15 @@ export default function CreateAccount() {
   });
 
   const onSubmit = (data: UserData) => {
-    console.warn(data);
-    router.push("/(tabs)");
+    setIsLoading(true);
+    API.createAccount(data)
+      .then((result) => {
+        setSession(result.user);
+        //  Salvar usuário no localStorage
+        router.push("/(tabs)");
+      })
+      .catch()
+      .finally(() => setIsLoading(false));
   };
 
   return (

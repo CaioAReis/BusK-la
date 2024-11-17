@@ -14,6 +14,8 @@ import { height } from "@/utils/constants/device";
 import { BottomSheetProps } from "@/utils/types";
 
 export function BottomSheet({
+  onOpen,
+  onClose,
   snapPoints,
   trigger: Trigger,
   children: Children,
@@ -23,10 +25,12 @@ export function BottomSheet({
 
   const handleCloseModalPress = useCallback(() => {
     bottomSheetModalRef.current?.close();
+    if (onClose) onClose();
   }, []);
 
   const handleShowModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
+    if (onOpen) onOpen();
   }, []);
 
   const backdrop = useCallback(

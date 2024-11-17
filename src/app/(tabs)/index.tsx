@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { router } from "expo-router";
+import { useContext, useState } from "react";
 import { FlatList, Image } from "react-native";
 
 import {
@@ -13,13 +14,17 @@ import {
 } from "@/components";
 // import { DeliveryCardProps } from "@/components/DeliveryCard";
 import { width } from "@/utils/constants/device";
+import AppContext from "@/utils/contexts/AppContext";
 import { DATA } from "@/utils/data";
 import { DeliveryCardProps } from "@/utils/types";
 
 const imageSize = width / 1.4;
 
 export default function Home() {
+  const { session } = useContext(AppContext);
   const [list, setList] = useState<DeliveryCardProps[]>([]);
+
+  if (!session) return router.replace("/(auth)");
 
   return (
     <Box backgroundColor="bg200" flex={1} px="md">
@@ -50,13 +55,13 @@ export default function Home() {
         ListHeaderComponent={
           <Box gap="xs">
             <Box gap="sm" flexDirection="row" alignItems="center" my="md">
-              <Avatar name="Caio" size={60} />
+              <Avatar name={session.name} size={60} />
 
               <Box gap="xs" flex={1}>
                 <Text variant={500} color="color200" fontSize={24}>
-                  Caio AReis
+                  {session.name}
                 </Text>
-                <Text color="color400">CaioAReis@mail.com</Text>
+                <Text color="color400">{session.email}</Text>
               </Box>
 
               <Notifications />

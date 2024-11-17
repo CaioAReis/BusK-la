@@ -33,6 +33,8 @@ const phoneMask = (e: string) => {
     .replace(/(\d{4})/, "$1");
 };
 
+const unMask = (e: string) => e.replace(/\D/g, "");
+
 const CPFMask = (e: string) =>
   e
     .replace(/\D/g, "")
@@ -71,4 +73,4 @@ const validateCPF = (cpf: string) => {
   return true;
 };
 
-export { isoDate, onlyDate, CPFMask, phoneMask, dateMask, validateCPF, customDate };
+export { isoDate, onlyDate, CPFMask, phoneMask, dateMask, unMask, validateCPF, customDate };

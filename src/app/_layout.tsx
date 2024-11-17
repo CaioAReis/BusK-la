@@ -17,6 +17,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Box } from "@/components";
 import { darkTheme, lightTheme } from "@/theme";
+import AppContext from "@/utils/contexts/AppContext";
+import { UserData } from "@/utils/types";
 
 // export const unstable_settings = {
 //   // Ensure that reloading on `/modal` keeps a back button present.
@@ -24,9 +26,23 @@ import { darkTheme, lightTheme } from "@/theme";
 // };
 
 export default function RootLayout() {
-  const [isDark] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [session, setSession] = useState<UserData | null>(null);
+
   const theme = isDark ? darkTheme : lightTheme;
   const bgColor = theme.colors.bg200;
+
+  const providerValue = {
+    isDark,
+    setIsDark,
+
+    isLoading,
+    setIsLoading,
+
+    session,
+    setSession,
+  };
 
   const [loaded, error] = useFonts({
     Rubik_300Light,
@@ -45,17 +61,19 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
-        <BottomSheetModalProvider>
-          <Box flex={1} backgroundColor="bg200">
-            <SafeAreaView style={{ flex: 1 }}>
-              <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="(auth)" />
-                <Stack.Screen name="(tabs)" />
-              </Stack>
-              <StatusBar backgroundColor={bgColor} style={isDark ? "light" : "dark"} />
-            </SafeAreaView>
-          </Box>
-        </BottomSheetModalProvider>
+        <AppContext.Provider value={providerValue}>
+          <BottomSheetModalProvider>
+            <Box flex={1} backgroundColor="bg200">
+              <SafeAreaView style={{ flex: 1 }}>
+                <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+                  <Stack.Screen name="(auth)" />
+                  <Stack.Screen name="(tabs)" />
+                </Stack>
+                <StatusBar backgroundColor={bgColor} style={isDark ? "light" : "dark"} />
+              </SafeAreaView>
+            </Box>
+          </BottomSheetModalProvider>
+        </AppContext.Provider>
       </ThemeProvider>
     </GestureHandlerRootView>
   );

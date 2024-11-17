@@ -1,4 +1,4 @@
-import { Redirect, router } from "expo-router";
+import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { Image, ScrollView, StyleSheet } from "react-native";
 
@@ -80,8 +80,6 @@ export default function Welcome() {
 
     router.push("/authCode");
   };
-
-  Redirect({ href: "/(tabs)" });
 
   return (
     <Box gap="md" backgroundColor="bg200" flex={1}>

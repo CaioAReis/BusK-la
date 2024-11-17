@@ -1,6 +1,6 @@
 import { router } from "expo-router";
-import { useRef, useState } from "react";
-import { useForm, Controller, Control, FieldErrors } from "react-hook-form";
+import { useContext, useRef, useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import {
   Image,
   Keyboard,
@@ -11,9 +11,11 @@ import {
 } from "react-native";
 
 import { Box, Button, IconButton, Input, Text } from "@/components";
+import { API } from "@/services/api";
 import { isAndroid, width } from "@/utils/constants/device";
-import { phoneMask } from "@/utils/constants/masks";
+import { phoneMask, unMask } from "@/utils/constants/masks";
 import { validate } from "@/utils/constants/validations";
+import AppContext from "@/utils/contexts/AppContext";
 import { AuthPhone, StepProps } from "@/utils/types";
 
 const imageSize = width / 1.4;
@@ -126,6 +128,8 @@ const Step2 = ({ control, errors, isHidden }: StepProps) => (
 );
 
 export default function AuthCode() {
+  const { setIsLoading, setSession } = useContext(AppContext);
+
   const __scrollRef = useRef<ScrollView | null>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
 
@@ -137,15 +141,35 @@ export default function AuthCode() {
 
   const onSubmit = (data: AuthPhone) => {
     if (currentStep === 0) {
-      return setCurrentStep((prev) => {
-        const result = prev + 1;
-        jumpStep(result);
-        return result;
-      });
+      setIsLoading(true);
+      return API.sendAuthCode(unMask(data.phone))
+        .then(() => {
+          return setCurrentStep((prev) => {
+            const result = prev + 1;
+            jumpStep(result);
+            return result;
+          });
+        })
+        .catch((error) => console.error(error))
+        .finally(() => setIsLoading(false));
     }
 
-    console.warn(data);
-    router.push("/createAccount");
+    setIsLoading(true);
+    API.verifyCode({ phone: unMask(data.phone), code: data.code })
+      .then((result) => {
+        if (result?.error) return alert(result.message);
+
+        if (result?.user) {
+          setSession(result.user);
+          //  Salvar usuário no localStorage
+          router.push("/(tabs)");
+          return result?.user;
+        }
+
+        router.push("/createAccount");
+      })
+      .catch((error) => console.error(error))
+      .finally(() => setIsLoading(false));
   };
 
   const updateStep = (scrollPosition: number) => {

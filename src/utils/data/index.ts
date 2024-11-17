@@ -1,4 +1,4 @@
-import { AuthPhone, UserData } from "../types";
+import { AuthPhone, NotificationCardProps, UserData } from "../types";
 
 export const DATA = {
   signIn: {
@@ -25,6 +25,16 @@ export const DATA = {
     AVGRating: 4.3,
     totalRatings: 1946,
   } as UserData,
+
+  notifications: [
+    {
+      _id: "1",
+      isNew: true,
+      title: "Boas vindas!",
+      createdAt: new Date(),
+      body: "Seja bem vindo ao nosso app!",
+    },
+  ] as NotificationCardProps[],
 
   citiesToWork: [
     {

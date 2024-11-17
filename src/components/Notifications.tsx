@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { BottomSheet } from "./BottomSheet";
 import Box from "./Box";
 import { Divider } from "./Divider";
@@ -5,21 +7,40 @@ import { IconButton } from "./IconButton";
 import { NotificationCard } from "./NotificationCard";
 import { SectionTitle } from "./SectionTitle";
 
+import { DATA } from "@/utils/data";
+import { NotificationCardProps } from "@/utils/types";
+
 export function Notifications() {
+  const [list, setList] = useState<NotificationCardProps[]>([]);
+
+  const handleSetNotificationsRead = () => {
+    setList((prev) => prev.map((item) => ({ ...item, isNew: false })));
+  };
+
+  const hasNew = list.find((item) => item.isNew === true);
+
+  useEffect(() => {
+    setList(DATA.notifications);
+  }, []);
+
   return (
     <BottomSheet
+      onClose={handleSetNotificationsRead}
       trigger={(props) => (
         <Box position="relative">
           <IconButton icon="Bell" {...props} />
-          <Box
-            top={8}
-            right={8}
-            width={10}
-            height={10}
-            borderRadius="md"
-            position="absolute"
-            backgroundColor="error300"
-          />
+
+          {hasNew && (
+            <Box
+              top={8}
+              right={8}
+              width={10}
+              height={10}
+              borderRadius="md"
+              position="absolute"
+              backgroundColor="error300"
+            />
+          )}
         </Box>
       )}
     >
@@ -28,37 +49,19 @@ export function Notifications() {
           <SectionTitle icon="Bell" title="Notificações" />
 
           <Box gap="md">
-            <NotificationCard
-              isNew
-              createdAt={new Date()}
-              title="Notification title"
-              body="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
+            {list.map((notification) => (
+              <>
+                <NotificationCard
+                  key={notification._id}
+                  body={notification.body}
+                  isNew={notification.isNew}
+                  title={notification.title}
+                  createdAt={notification.createdAt}
+                />
 
-            <Divider color="bg300" />
-
-            <NotificationCard
-              isNew
-              createdAt={new Date()}
-              title="Notification title"
-              body="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-
-            <Divider color="bg300" />
-
-            <NotificationCard
-              createdAt={new Date()}
-              title="Notification title"
-              body="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-
-            <Divider color="bg300" />
-
-            <NotificationCard
-              createdAt={new Date()}
-              title="Notification title"
-              body="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
+                <Divider color="bg300" />
+              </>
+            ))}
           </Box>
         </Box>
       )}
