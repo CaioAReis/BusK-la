@@ -39,6 +39,7 @@ export type UserData = {
 };
 
 export type AvatarProps = {
+  picture?: string;
   size?: number;
   name: string;
 };
@@ -57,6 +58,7 @@ export type DeliveryCardProps = {
   code: string;
   cityId: string;
   createdAt: Date;
+  userId: string | null;
   addresses: {
     toCollect: {
       address: string;

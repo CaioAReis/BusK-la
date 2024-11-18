@@ -1,9 +1,12 @@
 import { icons } from "lucide-react-native";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FlatList, Image } from "react-native";
 
 import { Avatar, Box, DeliveryCard, Icon, SectionTitle, Text } from "@/components";
+import { API } from "@/services/api";
 import { width } from "@/utils/constants/device";
+import AppContext from "@/utils/contexts/AppContext";
+import { DeliveryCardProps } from "@/utils/types";
 
 type BoxInfoProps = {
   value: string;
@@ -37,15 +40,30 @@ const BoxInfo = ({ icon, value, label }: BoxInfoProps) => (
 const imageSize = width / 1.6;
 
 export default function History() {
-  const [list, setList] = useState([]);
+  const { session } = useContext(AppContext);
+  const [list, setList] = useState<DeliveryCardProps[]>([]);
+
+  useEffect(() => {
+    API.getDeliveryHistory().then((result) => {
+      setList(result.list);
+    });
+  }, []);
 
   return (
     <Box backgroundColor="bg200" flex={1} px="md">
       <FlatList
         data={list}
+        keyExtractor={({ _id }) => _id}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<Box height={90} />}
-        renderItem={({ item }) => <DeliveryCard status={2} />}
+        renderItem={({ item }) => (
+          <DeliveryCard
+            code={item?.code}
+            status={item?.status}
+            addresses={item?.addresses}
+            createdAt={item?.createdAt}
+          />
+        )}
         ListEmptyComponent={
           <Box backgroundColor="bg100" p="sm" borderRadius="sm" top={-10}>
             <Box backgroundColor="bg200" borderRadius="sm" my="xs" py="xl">
@@ -71,27 +89,30 @@ export default function History() {
             <Box mt="md" backgroundColor="bg100" p="md" borderRadius="sm" gap="ml">
               <Box flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Box flex={1} alignItems="center" gap="md">
-                  <Avatar name="Caio" />
+                  <Avatar name={session?.name || ""} picture={session?.picture || ""} />
                   <Text variant={500} fontSize={16}>
-                    Caio AReis
+                    {session?.name || ""}
                   </Text>
                 </Box>
 
                 <Box flex={1} alignItems="center">
                   <Text variant={500} fontSize={40} color="color200" mb="ms">
-                    3.75
+                    {session?.AVGRating}
                   </Text>
 
                   <Box gap="sm" flexDirection="row" width="100%" justifyContent="center">
-                    <Icon icon="Star" size={20} color="secondary300" />
-                    <Icon icon="Star" size={20} color="secondary300" />
-                    <Icon icon="Star" size={20} color="secondary300" />
-                    <Icon icon="Star" size={20} color="secondary300" />
-                    <Icon icon="Star" size={20} color="secondary300" />
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <Icon
+                        size={20}
+                        key={star}
+                        icon="Star"
+                        color={session!.AVGRating > star ? "secondary300" : "bg400"}
+                      />
+                    ))}
                   </Box>
 
                   <Text fontSize={12} color="bg500" mt="sm">
-                    1.946 avaliações
+                    {session?.totalRatings} avaliações
                   </Text>
                 </Box>
               </Box>
@@ -99,8 +120,16 @@ export default function History() {
               {list.length > 0 && (
                 <Box flexDirection="row" gap="ms">
                   <Box gap="ms" flex={1}>
-                    <BoxInfo icon="PackageCheck" value="10" label="Entregas totais" />
-                    <BoxInfo icon="Timer" value="14 min" label="Tempo médio" />
+                    <BoxInfo
+                      icon="PackageCheck"
+                      label="Entregas totais"
+                      value={`${session?.totalDeliveries}`}
+                    />
+                    <BoxInfo
+                      icon="Timer"
+                      label="Tempo médio"
+                      value={`${session?.deliveryTime} min`}
+                    />
                   </Box>
 
                   <Box
@@ -114,7 +143,7 @@ export default function History() {
 
                     <Box gap="xs" mt="md" alignItems="center">
                       <Text variant={500} fontSize={16}>
-                        34.286 km
+                        {session?.totalKM} km
                       </Text>
 
                       <Text fontSize={12} color="color500">

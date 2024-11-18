@@ -52,10 +52,93 @@ export const DATA = {
 
   userDeliveryHistory: [
     {
+      status: 2,
+      _id: "XYMP99JETIE4",
+      code: "XYMP99JETIE4",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+
+        toDelivery: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "O5XJCY6APE13",
+      code: "O5XJCY6APE13",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+
+        toDelivery: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "I5FN8H9GUUWQ",
+      code: "I5FN8H9GUUWQ",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+
+        toDelivery: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "1DNRYPJURENP",
+      code: "1DNRYPJURENP",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+
+        toDelivery: {
+          coords: [-10.91564482988727, -37.67127265944143],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+        },
+      },
+    },
+  ] as DeliveryCardProps[],
+
+  deliveriesOnWay: [
+    {
       status: 0,
       _id: "XYMP99JETIE4",
       code: "XYMP99JETIE4",
       createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
@@ -75,6 +158,7 @@ export const DATA = {
       _id: "O5XJCY6APE13",
       code: "O5XJCY6APE13",
       createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
@@ -94,6 +178,7 @@ export const DATA = {
       _id: "I5FN8H9GUUWQ",
       code: "I5FN8H9GUUWQ",
       createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
@@ -109,10 +194,11 @@ export const DATA = {
     },
 
     {
-      status: 0,
+      status: 1,
       _id: "1DNRYPJURENP",
       code: "1DNRYPJURENP",
       createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
@@ -131,6 +217,7 @@ export const DATA = {
   deliveryList: [
     {
       status: 0,
+      userId: null,
       _id: "LRW4YUCER9T9",
       code: "LRW4YUCER9T9",
       createdAt: new Date(),
@@ -150,6 +237,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "CWTAQ468GQEY",
       code: "CWTAQ468GQEY",
       createdAt: new Date(),
@@ -169,6 +257,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "ZPJZCJUZRE4I",
       code: "ZPJZCJUZRE4I",
       createdAt: new Date(),
@@ -188,6 +277,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "QFQ31XXG06JW",
       code: "QFQ31XXG06JW",
       createdAt: new Date(),
@@ -207,6 +297,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "DSDLKL86LLJP",
       code: "DSDLKL86LLJP",
       createdAt: new Date(),
@@ -226,6 +317,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "RCREBZ30UXH7",
       code: "RCREBZ30UXH7",
       createdAt: new Date(),
@@ -245,6 +337,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "0W8JB92TY8ZP",
       code: "0W8JB92TY8ZP",
       createdAt: new Date(),
@@ -264,6 +357,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "ZEL3D32HINSB",
       code: "ZEL3D32HINSB",
       createdAt: new Date(),
@@ -283,6 +377,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "XXUN2J5JPG49",
       code: "XXUN2J5JPG49",
       createdAt: new Date(),
@@ -302,6 +397,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "FUI4IHU6T6ZL",
       code: "FUI4IHU6T6ZL",
       createdAt: new Date(),
@@ -321,6 +417,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "H17KFBU0A9AJ",
       code: "H17KFBU0A9AJ",
       createdAt: new Date(),
@@ -340,6 +437,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "NGOBUQYKG5G5",
       code: "NGOBUQYKG5G5",
       createdAt: new Date(),
@@ -359,6 +457,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "QOUTJBKKFEPD",
       code: "QOUTJBKKFEPD",
       createdAt: new Date(),
@@ -378,6 +477,7 @@ export const DATA = {
 
     {
       status: 0,
+      userId: null,
       _id: "DB4G0AHXXU8D",
       code: "DB4G0AHXXU8D",
       createdAt: new Date(),

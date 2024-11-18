@@ -38,6 +38,10 @@ export const API = {
   },
 
   getUserDeliveryList: async () => {
-    return { error: false, message: "", list: [] };
+    return { error: false, message: "", list: DATA.deliveriesOnWay };
+  },
+
+  getDeliveryHistory: async () => {
+    return { error: false, message: "", list: DATA.userDeliveryHistory };
   },
 };
