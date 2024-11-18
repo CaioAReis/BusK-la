@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FlatList, Image } from "react-native";
 
 import {
@@ -12,10 +12,9 @@ import {
   Notifications,
   DeliveriesStarted,
 } from "@/components";
-// import { DeliveryCardProps } from "@/components/DeliveryCard";
+import { API } from "@/services/api";
 import { width } from "@/utils/constants/device";
 import AppContext from "@/utils/contexts/AppContext";
-import { DATA } from "@/utils/data";
 import { DeliveryCardProps } from "@/utils/types";
 
 const imageSize = width / 1.4;
@@ -23,16 +22,47 @@ const imageSize = width / 1.4;
 export default function Home() {
   const { session } = useContext(AppContext);
   const [list, setList] = useState<DeliveryCardProps[]>([]);
+  const [deliveryStarteds, setDeliveryStarteds] = useState<DeliveryCardProps[]>([]);
+
+  const getDeliveries = () => {
+    API.getDeliveryList()
+      .then((result) => {
+        setList(result.list);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const getUserDeliveries = (userId: string) => {
+    API.getUserDeliveryList()
+      .then((result) => {
+        setDeliveryStarteds(result.list);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    // setIsLoading(true);
+    getDeliveries();
+    getUserDeliveries(session!._id);
+  }, []);
 
   if (!session) return router.replace("/(auth)");
 
   return (
     <Box backgroundColor="bg200" flex={1} px="md">
       <FlatList
-        data={list}
+        keyExtractor={({ _id }) => _id}
+        data={list as DeliveryCardProps[]}
         showsVerticalScrollIndicator={false}
         ListFooterComponent={<Box height={90} />}
-        renderItem={({ item }) => <DeliveryCard />}
+        renderItem={({ item }) => (
+          <DeliveryCard
+            code={item?.code}
+            status={item?.status}
+            addresses={item?.addresses}
+            createdAt={item?.createdAt}
+          />
+        )}
         ListEmptyComponent={
           <Box>
             <Image
@@ -67,13 +97,7 @@ export default function Home() {
               <Notifications />
             </Box>
 
-            <Box>
-              <Divider color="bg300" />
-              <Box>
-                <SectionTitle icon="Package" title="Entregas Iniciadas" />
-                <DeliveriesStarted />
-              </Box>
-            </Box>
+            <DeliveriesStarted list={deliveryStarteds} />
 
             <Divider color="bg300" />
 

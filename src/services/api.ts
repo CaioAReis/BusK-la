@@ -2,13 +2,11 @@ import { DATA } from "@/utils/data";
 import { AuthPhone, UserData } from "@/utils/types";
 
 export const API = {
-  //  Send SMS code to phone
   sendAuthCode: async (phone: string) => {
     if (phone === "79996712821") return { error: false, message: "Código enviado" };
     throw new Error("Erro ao enviar código");
   },
 
-  //  Verify phone and code
   verifyCode: async ({ phone, code }: AuthPhone) => {
     if (phone === "79996712821") {
       if (code === "918311") return { error: false, message: "", user: null };
@@ -36,12 +34,10 @@ export const API = {
   },
 
   getDeliveryList: async () => {
-    const result = {};
-    return result;
+    return { error: false, message: "", list: DATA.deliveryList };
   },
 
   getUserDeliveryList: async () => {
-    const result = {};
-    return result;
+    return { error: false, message: "", list: [] };
   },
 };

@@ -53,9 +53,20 @@ export type BottomSheetProps = {
 };
 
 export type DeliveryCardProps = {
+  _id: string;
   code: string;
+  cityId: string;
   createdAt: Date;
-  address: string;
+  addresses: {
+    toCollect: {
+      address: string;
+      coords: [number, number];
+    };
+    toDelivery: {
+      address: string;
+      coords: [number, number];
+    };
+  };
   started: boolean;
   status: 0 | 1 | 2;
 } & BoxProps<Theme>;

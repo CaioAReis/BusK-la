@@ -17,9 +17,16 @@ const AddressLabel = {
   0: "Coleta",
   1: "Levando para",
   2: "Entregue em",
-}
+};
 
-export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardProps) {
+export function DeliveryCard({
+  code,
+  started,
+  createdAt,
+  addresses,
+  status = 0,
+  ...boxProps
+}: Partial<DeliveryCardProps>) {
   return (
     <Box
       p="ms"
@@ -36,7 +43,7 @@ export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardP
           <Text variant={500} color="primary300">
             {"# "}
           </Text>
-          DMO1PKTX24C
+          {code}
         </Text>
 
         {started ? (
@@ -44,7 +51,7 @@ export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardP
             Detalhes
           </Button>
         ) : (
-          <Text color="color500">{customDate(new Date())}</Text>
+          <Text color="color500">{customDate(createdAt!)}</Text>
         )}
       </Box>
 
@@ -70,7 +77,7 @@ export function DeliveryCard({ status = 0, started, ...boxProps }: DeliveryCardP
         </Box>
 
         <Text variant={500} textAlign="center" color="primary300">
-          Av. Eremita Francisa de Jesus, 823, São José
+          {status > 0 ? addresses?.toDelivery.address : addresses?.toCollect.address}
         </Text>
       </Box>
     </Box>

@@ -50,9 +50,8 @@ export function Notifications() {
 
           <Box gap="md">
             {list.map((notification) => (
-              <>
+              <Box key={notification._id} gap="md">
                 <NotificationCard
-                  key={notification._id}
                   body={notification.body}
                   isNew={notification.isNew}
                   title={notification.title}
@@ -60,7 +59,7 @@ export function Notifications() {
                 />
 
                 <Divider color="bg300" />
-              </>
+              </Box>
             ))}
           </Box>
         </Box>

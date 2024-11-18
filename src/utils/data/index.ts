@@ -1,4 +1,4 @@
-import { AuthPhone, NotificationCardProps, UserData } from "../types";
+import { AuthPhone, DeliveryCardProps, NotificationCardProps, UserData } from "../types";
 
 export const DATA = {
   signIn: {
@@ -126,7 +126,7 @@ export const DATA = {
         },
       },
     },
-  ],
+  ] as DeliveryCardProps[],
 
   deliveryList: [
     {
@@ -394,5 +394,5 @@ export const DATA = {
         },
       },
     },
-  ],
+  ] as DeliveryCardProps[],
 };
