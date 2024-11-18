@@ -11,6 +11,9 @@ interface ContextData {
 
   isDark: boolean;
   setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
+
+  defaultCity: string;
+  setDefaultCity: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const AppContext = createContext<ContextData>({} as ContextData);

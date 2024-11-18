@@ -27,6 +27,7 @@ import { UserData } from "@/utils/types";
 
 export default function RootLayout() {
   const [isDark, setIsDark] = useState<boolean>(false);
+  const [defaultCity, setDefaultCity] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [session, setSession] = useState<UserData | null>(null);
 
@@ -42,6 +43,9 @@ export default function RootLayout() {
 
     session,
     setSession,
+
+    defaultCity,
+    setDefaultCity,
   };
 
   const [loaded, error] = useFonts({
