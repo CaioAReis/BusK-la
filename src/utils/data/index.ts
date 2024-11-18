@@ -1,4 +1,4 @@
-import { AuthPhone, DeliveryCardProps, NotificationCardProps, UserData } from "../types";
+import { AuthPhone, City, DeliveryCardProps, NotificationCardProps, UserData } from "../types";
 
 export const DATA = {
   signIn: {
@@ -48,7 +48,7 @@ export const DATA = {
       _id: "eyMYbBXXPzcIKTNyBBZp",
       coords: [-10.926928352712721, -37.07252443934193],
     },
-  ],
+  ] as City[],
 
   userDeliveryHistory: [
     {

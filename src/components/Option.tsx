@@ -24,7 +24,7 @@ export function Option({
         alignItems="center"
         justifyContent="space-between"
         opacity={touchableProps.disabled ? 0.5 : 1}
-        backgroundColor={selected ? "primary100" : "bg100"}
+        backgroundColor={selected ? "primaryAlpha500" : "bg100"}
       >
         <Box flexDirection="row" alignItems="center" gap="md">
           {leftIcon && <Icon icon={leftIcon} color={color ?? "primary300"} size={24} />}

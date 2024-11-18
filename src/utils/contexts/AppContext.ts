@@ -1,6 +1,6 @@
 import { Dispatch, createContext } from "react";
 
-import { UserData } from "../types";
+import { City, UserData } from "../types";
 
 interface ContextData {
   isLoading: boolean;
@@ -12,8 +12,8 @@ interface ContextData {
   isDark: boolean;
   setIsDark: React.Dispatch<React.SetStateAction<boolean>>;
 
-  defaultCity: string;
-  setDefaultCity: React.Dispatch<React.SetStateAction<string>>;
+  defaultCity: City;
+  setDefaultCity: React.Dispatch<React.SetStateAction<City>>;
 }
 
 const AppContext = createContext<ContextData>({} as ContextData);

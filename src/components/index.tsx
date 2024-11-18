@@ -9,6 +9,7 @@ import { Dot } from "./Dot";
 import { Icon } from "./Icon";
 import { IconButton } from "./IconButton";
 import { Input } from "./Input";
+import { MostText } from "./MostText";
 import { NotificationCard } from "./NotificationCard";
 import { Notifications } from "./Notifications";
 import { Option } from "./Option";
@@ -28,6 +29,7 @@ export {
   Button,
   Option,
   Divider,
+  MostText,
   StepsLine,
   IconButton,
   TabBarIcon,

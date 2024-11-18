@@ -18,7 +18,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Box } from "@/components";
 import { darkTheme, lightTheme } from "@/theme";
 import AppContext from "@/utils/contexts/AppContext";
-import { UserData } from "@/utils/types";
+import { DATA } from "@/utils/data";
+import { City, UserData } from "@/utils/types";
 
 // export const unstable_settings = {
 //   // Ensure that reloading on `/modal` keeps a back button present.
@@ -27,9 +28,9 @@ import { UserData } from "@/utils/types";
 
 export default function RootLayout() {
   const [isDark, setIsDark] = useState<boolean>(false);
-  const [defaultCity, setDefaultCity] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [session, setSession] = useState<UserData | null>(null);
+  const [defaultCity, setDefaultCity] = useState<City>(DATA.citiesToWork[0]);
 
   const theme = isDark ? darkTheme : lightTheme;
   const bgColor = theme.colors.bg200;

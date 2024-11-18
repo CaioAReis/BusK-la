@@ -97,7 +97,7 @@ export default function History() {
 
                 <Box flex={1} alignItems="center">
                   <Text variant={500} fontSize={40} color="color200" mb="ms">
-                    {session?.AVGRating}
+                    {session?.AVGRating ?? 0.0}
                   </Text>
 
                   <Box gap="sm" flexDirection="row" width="100%" justifyContent="center">

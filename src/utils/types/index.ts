@@ -53,6 +53,12 @@ export type BottomSheetProps = {
   children: JSX.ElementType;
 };
 
+export type City = {
+  _id: string;
+  name: string;
+  coords: [number, number];
+};
+
 export type DeliveryCardProps = {
   _id: string;
   code: string;

@@ -44,4 +44,8 @@ export const API = {
   getDeliveryHistory: async () => {
     return { error: false, message: "", list: DATA.userDeliveryHistory };
   },
+
+  getCities: async () => {
+    return { error: false, message: "", list: DATA.citiesToWork };
+  },
 };

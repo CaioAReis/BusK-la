@@ -19,7 +19,7 @@ export function Avatar({ name, picture, size }: AvatarProps) {
         <Image source={{ uri: picture }} style={{ width: "100%", height: "100%" }} />
       ) : (
         <Text fontSize={(size ?? 80) / 2.2} color="bg100" variant={500}>
-          {name[0].toUpperCase()}
+          {name[0]?.toUpperCase()}
         </Text>
       )}
     </Box>
