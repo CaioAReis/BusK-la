@@ -3,12 +3,12 @@ import { ScrollView } from "react-native";
 
 import Box from "./Box";
 import { DeliveryCard } from "./DeliveryCard";
+import { Divider } from "./Divider";
 import { Dot } from "./Dot";
+import { SectionTitle } from "./SectionTitle";
 
 import { width } from "@/utils/constants/device";
 import { DeliveriesStartedProps } from "@/utils/types";
-import { SectionTitle } from "./SectionTitle";
-import { Divider } from "./Divider";
 
 export function DeliveriesStarted({ list }: DeliveriesStartedProps) {
   const __scrollRef = useRef<ScrollView>(null);
@@ -33,15 +33,23 @@ export function DeliveriesStarted({ list }: DeliveriesStartedProps) {
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
         >
-          <DeliveryCard width={width - 32} started />
-          <DeliveryCard width={width - 32} started />
-          <DeliveryCard width={width - 32} started />
+          {list.map((item) => (
+            <DeliveryCard
+              started
+              key={item?._id}
+              code={item?.code}
+              width={width - 32}
+              status={item?.status}
+              addresses={item?.addresses}
+              createdAt={item?.createdAt}
+            />
+          ))}
         </ScrollView>
 
         <Box mb="md" justifyContent="center" gap="md" flexDirection="row">
-          <Dot selected={currentStep === 0} />
-          <Dot selected={currentStep === 1} />
-          <Dot selected={currentStep === 2} />
+          {list.map((item, i) => (
+            <Dot key={i} selected={currentStep === i} />
+          ))}
         </Box>
       </Box>
     </Box>
