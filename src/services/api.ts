@@ -33,6 +33,10 @@ export const API = {
     return { error: false, message: "Usuário criado com sucesso!", user: newUser };
   },
 
+  updateAccount: async (userData: UserData) => {
+    return { error: false, message: "Alterações realizadas com sucesso!" };
+  },
+
   getDeliveryList: async () => {
     return { error: false, message: "", list: DATA.deliveryList };
   },

@@ -11,6 +11,7 @@ export function Avatar({ name, picture, size }: AvatarProps) {
       width={size ?? 80}
       height={size ?? 80}
       borderRadius="xl"
+      overflow="hidden"
       alignItems="center"
       justifyContent="center"
       backgroundColor="primary300"

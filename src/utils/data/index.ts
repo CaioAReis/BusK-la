@@ -12,7 +12,8 @@ export const DATA = {
     name: "Caio AReis",
     email: "CaioAReis@mail.com",
     phone: "79999999999",
-    picture: "",
+    picture:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.tqQ6JWEYhmn155tklmfKkAHaEo%26pid%3DApi&f=1&ipt=04023229f18f7e9f22f9e316abfba0a6c71bf11c93013e34517fb625d2b75c90&ipo=images",
     birthDate: "24/06/1998",
     vehicleType: "Moto",
 
