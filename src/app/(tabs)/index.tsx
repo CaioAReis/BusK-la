@@ -20,12 +20,12 @@ import { DeliveryCardProps } from "@/utils/types";
 const imageSize = width / 1.4;
 
 export default function Home() {
-  const { session } = useContext(AppContext);
+  const { session, defaultCity } = useContext(AppContext);
   const [list, setList] = useState<DeliveryCardProps[]>([]);
   const [deliveryStarteds, setDeliveryStarteds] = useState<DeliveryCardProps[]>([]);
 
   const getDeliveries = () => {
-    API.getDeliveryList()
+    API.getDeliveryList(defaultCity._id)
       .then((result) => {
         setList(result.list);
       })
@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   const getUserDeliveries = (userId: string) => {
-    API.getUserDeliveryList()
+    API.getUserDeliveryList(session!._id)
       .then((result) => {
         setDeliveryStarteds(result.list);
       })
@@ -44,7 +44,7 @@ export default function Home() {
     // setIsLoading(true);
     getDeliveries();
     getUserDeliveries(session!._id);
-  }, []);
+  }, [defaultCity]);
 
   if (!session) return router.replace("/(auth)");
 

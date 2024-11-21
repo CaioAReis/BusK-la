@@ -44,7 +44,7 @@ export default function History() {
   const [list, setList] = useState<DeliveryCardProps[]>([]);
 
   useEffect(() => {
-    API.getDeliveryHistory().then((result) => {
+    API.getDeliveryHistory(session!._id).then((result) => {
       setList(result.list);
     });
   }, []);

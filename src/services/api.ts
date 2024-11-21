@@ -19,7 +19,7 @@ export const API = {
   createAccount: async (userData: UserData) => {
     const newUser: UserData = {
       ...userData,
-      _id: "ROKAUm05KyjGPGGSo93Q",
+      _id: "ROKAUm05KyjGPGGSo93Q2",
       cityToWork: "KDFpA0ew9CWNM7LJeQBM",
 
       totalDeliveries: 0,
@@ -37,16 +37,23 @@ export const API = {
     return { error: false, message: "Alterações realizadas com sucesso!" };
   },
 
-  getDeliveryList: async () => {
-    return { error: false, message: "", list: DATA.deliveryList };
+  getDeliveryList: async (cityId: string) => {
+    const result = DATA.deliveryList.filter((city) => city.cityId === cityId);
+    return { error: false, message: "", list: result };
   },
 
-  getUserDeliveryList: async () => {
-    return { error: false, message: "", list: DATA.deliveriesOnWay };
+  getUserDeliveryList: async (userId: string) => {
+    if (userId === "ROKAUm05KyjGPGGSo93Q")
+      return { error: false, message: "", list: DATA.deliveriesOnWay };
+
+    return { error: false, message: "", list: [] };
   },
 
-  getDeliveryHistory: async () => {
-    return { error: false, message: "", list: DATA.userDeliveryHistory };
+  getDeliveryHistory: async (userId: string) => {
+    if (userId === "ROKAUm05KyjGPGGSo93Q")
+      return { error: false, message: "", list: DATA.userDeliveryHistory };
+
+    return { error: false, message: "", list: [] };
   },
 
   getCities: async () => {
