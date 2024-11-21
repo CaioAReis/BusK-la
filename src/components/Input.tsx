@@ -1,14 +1,16 @@
+import { useTheme } from "@shopify/restyle";
 import { useRef } from "react";
 import { TextInput } from "react-native";
 
 import Box from "./Box";
 import Text from "./Text";
 
-import { makeStyles } from "@/theme";
+import { makeStyles, Theme } from "@/theme";
 import { InputProps } from "@/utils/types";
 
 export function Input({ right: Right, label, isInvalid, ...textInputProps }: InputProps) {
   const styles = useStyles();
+  const colors = useTheme<Theme>().colors;
   const __inputRef = useRef<TextInput>(null);
 
   return (
@@ -40,12 +42,12 @@ export function Input({ right: Right, label, isInvalid, ...textInputProps }: Inp
         <TextInput
           ref={__inputRef}
           {...textInputProps}
-          cursorColor={styles.cursorColor}
-          placeholderTextColor={styles.place}
+          cursorColor={colors.secondary100}
+          placeholderTextColor={colors.bg500}
           style={[
             styles.input,
             textInputProps.style,
-            { color: isInvalid ? styles.colorError : styles.color },
+            { color: isInvalid ? colors.error300 : colors.color300 },
           ]}
         />
       </Box>
@@ -65,10 +67,5 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Rubik_400Regular",
     paddingVertical: theme.spacing.md,
     paddingHorizontal: theme.spacing.sm,
-    backgroundColor: theme.colors.bg100,
   },
-  place: theme.colors.bg500,
-  color: theme.colors.color300,
-  colorError: theme.colors.error300,
-  cursorColor: theme.colors.secondary100,
 }));

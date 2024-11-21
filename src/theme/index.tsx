@@ -1,4 +1,5 @@
-import { createTheme } from "@shopify/restyle";
+import { createTheme, ThemeProvider as ThemeProviderRE } from "@shopify/restyle";
+import { ReactNode } from "react";
 import { ImageStyle, TextStyle, ViewStyle } from "react-native";
 
 import { dark_pallet, light_pallet } from "./colors";
@@ -49,13 +50,7 @@ const textVariants = {
   },
 };
 
-const darkTheme = createTheme({
-  textVariants,
-  buttonVariants,
-  spacing: spacings,
-  colors: dark_pallet,
-  borderRadii: borderRadius,
-});
+export type Theme = typeof lightTheme;
 
 const lightTheme = createTheme({
   textVariants,
@@ -65,13 +60,27 @@ const lightTheme = createTheme({
   borderRadii: borderRadius,
 });
 
+const darkTheme: Theme = {
+  ...lightTheme,
+  colors: dark_pallet,
+};
+
 export const makeStyles = <T extends NamedStyles<T> | NamedStyles<unknown>>(
   styles: (theme: Theme) => T
 ) => {
   return () => {
-    return styles(lightTheme);
+    const themeApp = lightTheme;
+    return styles(themeApp);
   };
 };
 
-export type Theme = typeof lightTheme;
-export { darkTheme, lightTheme };
+type ThemeProviderProps = {
+  children: ReactNode;
+  isDark: boolean;
+};
+
+export const ThemeProvider = ({ children, isDark }: ThemeProviderProps) => {
+  const themeApp = isDark ? darkTheme : lightTheme;
+
+  return <ThemeProviderRE theme={themeApp}>{children}</ThemeProviderRE>;
+};

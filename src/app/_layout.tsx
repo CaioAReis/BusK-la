@@ -7,7 +7,6 @@ import {
   Rubik_700Bold,
 } from "@expo-google-fonts/rubik";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
-import { ThemeProvider } from "@shopify/restyle";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -16,7 +15,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Box } from "@/components";
-import { darkTheme, lightTheme } from "@/theme";
+import { ThemeProvider } from "@/theme";
 import AppContext from "@/utils/contexts/AppContext";
 import { DATA } from "@/utils/data";
 import { City, UserData } from "@/utils/types";
@@ -32,8 +31,8 @@ export default function RootLayout() {
   const [session, setSession] = useState<UserData | null>(null);
   const [defaultCity, setDefaultCity] = useState<City>(DATA.citiesToWork[0]);
 
-  const theme = isDark ? darkTheme : lightTheme;
-  const bgColor = theme.colors.bg200;
+  // const theme = isDark ? darkTheme : lightTheme;
+  // const bgColor = theme.colors.bg200;
 
   const providerValue = {
     isDark,
@@ -65,7 +64,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider isDark={isDark}>
         <AppContext.Provider value={providerValue}>
           <BottomSheetModalProvider>
             <Box flex={1} backgroundColor="bg200">
@@ -74,7 +73,7 @@ export default function RootLayout() {
                   <Stack.Screen name="(auth)" />
                   <Stack.Screen name="(tabs)" />
                 </Stack>
-                <StatusBar backgroundColor={bgColor} style={isDark ? "light" : "dark"} />
+                <StatusBar style={isDark ? "light" : "dark"} />
               </SafeAreaView>
             </Box>
           </BottomSheetModalProvider>

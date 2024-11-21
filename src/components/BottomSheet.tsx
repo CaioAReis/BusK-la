@@ -5,11 +5,12 @@ import {
   BottomSheetScrollView,
 } from "@gorhom/bottom-sheet";
 import { BottomSheetDefaultBackdropProps } from "@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types";
+import { useTheme } from "@shopify/restyle";
 import { useCallback, useRef } from "react";
 
 import { Button } from "./Button";
 
-import { makeStyles } from "@/theme";
+import { makeStyles, Theme } from "@/theme";
 import { height } from "@/utils/constants/device";
 import { BottomSheetProps } from "@/utils/types";
 
@@ -21,6 +22,7 @@ export function BottomSheet({
   children: Children,
 }: BottomSheetProps) {
   const styles = useStyles();
+  const colors = useTheme<Theme>().colors;
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   const handleCloseModalPress = useCallback(() => {
@@ -49,9 +51,9 @@ export function BottomSheet({
         style={styles.teste}
         ref={bottomSheetModalRef}
         backdropComponent={backdrop}
-        backgroundStyle={styles.container}
-        handleIndicatorStyle={styles.handle}
+        handleIndicatorStyle={[styles.handle, { backgroundColor: colors.bg400 }]}
         snapPoints={snapPoints || [height / 1.8, height / 1.1]}
+        backgroundStyle={[styles.container, { backgroundColor: colors.bg200 }]}
       >
         <BottomSheetScrollView showsVerticalScrollIndicator={false}>
           <BottomSheetView>
@@ -70,7 +72,6 @@ export function BottomSheet({
 const useStyles = makeStyles((theme) => ({
   container: {
     borderRadius: theme.borderRadii.ml,
-    backgroundColor: theme.colors.bg200,
   },
   teste: {
     paddingHorizontal: theme.spacing.md,

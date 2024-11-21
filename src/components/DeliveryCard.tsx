@@ -76,7 +76,7 @@ export function DeliveryCard({
           <Text color="color500">{AddressLabel[status]}</Text>
         </Box>
 
-        <Text variant={500} textAlign="center" color="primary300">
+        <Text variant={500} textAlign="center" color={started ? "secondary300" : "primary300"}>
           {status > 0 ? addresses?.toDelivery.address : addresses?.toCollect.address}
         </Text>
       </Box>

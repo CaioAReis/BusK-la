@@ -1,22 +1,18 @@
+import { useTheme } from "@shopify/restyle";
 import { icons } from "lucide-react-native";
 
 import Box from "./Box";
 
-import { makeStyles, Theme } from "@/theme";
+import { Theme } from "@/theme";
 import { IconProps } from "@/utils/types";
 
 export function Icon({ icon, size, color, ...boxProps }: IconProps) {
-  const styles = useStyles();
+  const colors = useTheme<Theme>().colors;
   const LucideIcon = icons[icon];
 
   return (
     <Box {...boxProps}>
-      <LucideIcon size={size ?? 28} color={color ? styles.userColor(color) : styles.defaultColor} />
+      <LucideIcon size={size ?? 28} color={color ? colors[color] : colors.color200} />
     </Box>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  defaultColor: theme.colors.color200,
-  userColor: (color: keyof Theme["colors"]) => theme.colors[color],
-}));

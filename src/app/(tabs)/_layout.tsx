@@ -1,10 +1,12 @@
+import { useTheme } from "@shopify/restyle";
 import { Tabs } from "expo-router";
 
 import { TabBarIcon } from "@/components";
-import { makeStyles } from "@/theme";
+import { makeStyles, Theme } from "@/theme";
 
 export default function TabLayout() {
   const styles = useStyles();
+  const colors = useTheme<Theme>().colors;
 
   return (
     <Tabs
@@ -13,7 +15,7 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: false,
         tabBarItemStyle: { top: 12 },
-        tabBarStyle: styles.tabBarStyle,
+        tabBarStyle: [styles.tabBarStyle, { backgroundColor: colors.bg100 }],
       }}
     >
       <Tabs.Screen

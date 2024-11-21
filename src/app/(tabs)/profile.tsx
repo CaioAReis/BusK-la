@@ -53,7 +53,7 @@ const LogOutModal = () => {
   return (
     <>
       <Box borderRadius="sm" overflow="hidden">
-        <Option color="error300" leftIcon="LogOut" onPress={handleOpenModal}>
+        <Option color="error400" leftIcon="LogOut" onPress={handleOpenModal}>
           Sair
         </Option>
       </Box>

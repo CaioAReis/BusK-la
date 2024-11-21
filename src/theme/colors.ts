@@ -50,9 +50,9 @@ const light_pallet = {
 const dark_pallet = {
   bg100: "#3A3A40",
   bg200: "#222227",
-  bg300: "#38383c",
-  bg400: "#4e4e52",
-  bg500: "#646467",
+  bg300: "#4e4e52",
+  bg400: "#7a7a7d",
+  bg500: "#a6a6a8",
 
   color100: "#FFFFFF",
   color200: "#F2F2F6",
