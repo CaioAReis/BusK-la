@@ -20,19 +20,11 @@ import AppContext from "@/utils/contexts/AppContext";
 import { DATA } from "@/utils/data";
 import { City, UserData } from "@/utils/types";
 
-// export const unstable_settings = {
-//   // Ensure that reloading on `/modal` keeps a back button present.
-//   initialRouteName: "(tabs)",
-// };
-
 export default function RootLayout() {
   const [isDark, setIsDark] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [session, setSession] = useState<UserData | null>(null);
   const [defaultCity, setDefaultCity] = useState<City>(DATA.citiesToWork[0]);
-
-  // const theme = isDark ? darkTheme : lightTheme;
-  // const bgColor = theme.colors.bg200;
 
   const providerValue = {
     isDark,

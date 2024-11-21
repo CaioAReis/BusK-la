@@ -106,7 +106,7 @@ export default function History() {
                         size={20}
                         key={star}
                         icon="Star"
-                        color={session!.AVGRating > star ? "secondary300" : "bg400"}
+                        color={(session?.AVGRating ?? star < 0.0) ? "secondary300" : "bg400"}
                       />
                     ))}
                   </Box>
