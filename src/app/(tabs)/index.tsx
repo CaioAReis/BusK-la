@@ -61,6 +61,12 @@ export default function Home() {
             status={item?.status}
             addresses={item?.addresses}
             createdAt={item?.createdAt}
+            onPress={() =>
+              router.push({
+                pathname: "/(session)/shipping",
+                params: { deliveryId: item?._id },
+              })
+            }
           />
         )}
         ListEmptyComponent={

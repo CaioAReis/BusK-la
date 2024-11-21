@@ -42,6 +42,12 @@ export const API = {
     return { error: false, message: "", list: result };
   },
 
+  getDelivery: async (deliveryId: string) => {
+    const result = DATA.deliveryList.find((delivery) => delivery._id === deliveryId);
+
+    return { error: false, message: "", delivery: result };
+  },
+
   getUserDeliveryList: async (userId: string) => {
     if (userId === "ROKAUm05KyjGPGGSo93Q")
       return { error: false, message: "", list: DATA.deliveriesOnWay };

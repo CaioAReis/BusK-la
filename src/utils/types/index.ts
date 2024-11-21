@@ -64,6 +64,7 @@ export type DeliveryCardProps = {
   code: string;
   cityId: string;
   createdAt: Date;
+  onPress?: () => void;
   userId: string | null;
   addresses: {
     toCollect: {

@@ -4,6 +4,7 @@ export default function SessionLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="editProfile" />
+      <Stack.Screen name="shipping" />
     </Stack>
   );
 }
