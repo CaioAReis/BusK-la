@@ -3,6 +3,7 @@ import { Tabs } from "expo-router";
 
 import { TabBarIcon } from "@/components";
 import { makeStyles, Theme } from "@/theme";
+import { isAndroid } from "@/utils/constants/device";
 
 export default function TabLayout() {
   const styles = useStyles();
@@ -14,7 +15,7 @@ export default function TabLayout() {
         headerShown: false,
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: false,
-        tabBarItemStyle: { top: 12 },
+        tabBarItemStyle: { top: isAndroid ? 0 : 12 },
         tabBarStyle: [styles.tabBarStyle, { backgroundColor: colors.bg100 }],
       }}
     >

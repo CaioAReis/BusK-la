@@ -61,7 +61,7 @@ export const DATA = {
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
-          coords: [-10.91564482988727, -37.67127265944143],
+          coords: [-10.923199302869017, -37.67696861332419],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
         },
 
@@ -225,7 +225,7 @@ export const DATA = {
       cityId: "KDFpA0ew9CWNM7LJeQBM",
       addresses: {
         toCollect: {
-          coords: [-10.91564482988727, -37.67127265944143],
+          coords: [-10.923199302869017, -37.67696861332419],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
         },
 

@@ -32,7 +32,7 @@ const Step2 = () => (
     <Image
       resizeMode="contain"
       style={{ width: width / 1.2, height: width / 1.2 }}
-      source={require("@/assets/images/Delivery.png")}
+      source={require("@/assets/images/DeliveryMan.png")}
     />
 
     <Box gap="lg" width="100%">
