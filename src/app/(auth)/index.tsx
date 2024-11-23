@@ -69,20 +69,17 @@ export default function Welcome() {
   const __scrollRef = useRef<ScrollView | null>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
 
-  const updateStep = (scrollPosition: number) => {
-    const result = (scrollPosition / width).toFixed(0);
-    setCurrentStep(parseInt(result, 10));
-  };
-
   const jumpStep = () => {
-    if (currentStep < 2)
+    if (currentStep < 2) {
+      setCurrentStep((prev) => prev + 1);
       return __scrollRef.current?.scrollTo({ x: width * (currentStep + 1), animated: true });
+    }
 
     router.push("/authCode");
   };
 
   return (
-    <Box gap="md" backgroundColor="bg200" flex={1}>
+    <Box gap="md" backgroundColor="bg200" flex={1} pt="md">
       <Image
         resizeMode="contain"
         style={styles.image}
@@ -93,16 +90,16 @@ export default function Welcome() {
         horizontal
         pagingEnabled
         ref={__scrollRef}
+        scrollEnabled={false}
         showsHorizontalScrollIndicator={false}
-        style={{ width, maxHeight: height / 1.6 }}
-        onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
+        style={{ width, maxHeight: height / 1.7 }}
       >
         <Step1 />
         <Step2 />
         <Step3 />
       </ScrollView>
 
-      <Box width="100%" p="md">
+      <Box width="100%" px="md" mt="md">
         <Box mb="lg" justifyContent="center" gap="md" flexDirection="row">
           <Dot selected={currentStep === 0} />
           <Dot selected={currentStep === 1} />
