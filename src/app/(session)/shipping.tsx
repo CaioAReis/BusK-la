@@ -34,7 +34,40 @@ const AddressLabel = {
   2: "Entregue em",
 };
 
-const ShippingDetails = () => {
+const UserCallLabel = {
+  0: "Coletar com:",
+  1: "Entregar para:",
+  2: "Entregue para:",
+};
+
+const ShippingDetails = ({ delivery }: { delivery: DeliveryCardProps }) => {
+  const user =
+    delivery.status === 0 ? delivery.addresses.toCollect.user : delivery.addresses.toDelivery.user;
+
+  const handleStartDelivery = () => {
+    alert("Começar");
+  };
+
+  const handleCollectPackege = () => {
+    alert("Começar");
+  };
+
+  const handleDeliveryPackege = () => {
+    alert("Começar");
+  };
+
+  const handleCallToClient = (phone: string) => {
+    alert("Ligar para: " + phone);
+  };
+
+  const handlePress = () => {
+    if (!delivery.userId) return handleStartDelivery();
+
+    if (delivery.status === 0) return handleCollectPackege();
+
+    return handleDeliveryPackege();
+  };
+
   return (
     <>
       <BottomSheet
@@ -48,15 +81,25 @@ const ShippingDetails = () => {
           <Box>
             <SectionTitle icon="Package" title="Detalhes da entrega" />
 
-            <Box mb="lg" gap="md" p="md" backgroundColor="bg100" mt="md" borderRadius="sm">
+            <Box
+              p="md"
+              mb="lg"
+              mt="md"
+              gap="md"
+              borderWidth={2}
+              borderRadius="sm"
+              position="relative"
+              backgroundColor="bg100"
+              borderColor={delivery.userId ? "secondary300" : "transparent"}
+            >
               <Box mb="md" flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Text variant={500} fontSize={16}>
                   <Text variant={500} color="primary300">
                     {"# "}
                   </Text>
-                  AISDJJAUSDASKD
+                  {delivery.code ?? ""}
                 </Text>
-                <Text color="color500">{customDate(new Date())}</Text>
+                <Text color="color500">{customDate(delivery.createdAt)}</Text>
               </Box>
 
               <StepsLine status={0} />
@@ -70,7 +113,9 @@ const ShippingDetails = () => {
                 </Box>
 
                 <Text variant={500} textAlign="center" color="color200">
-                  Av. Eremita Francisca de Jesus
+                  {delivery.status === 0
+                    ? delivery.addresses.toCollect.address
+                    : delivery.addresses.toDelivery.address}
                 </Text>
               </Box>
 
@@ -78,22 +123,40 @@ const ShippingDetails = () => {
 
               <Box flexDirection="row" gap="sm">
                 <Box flex={1} flexDirection="row" alignItems="center" gap="sm">
-                  <Avatar name="Caio" size={60} />
+                  <Avatar size={60} name={user.name ?? ""} picture={user.picture} />
                   <Box gap="xs" flex={1}>
-                    <Text color="color300">Coletar com:</Text>
+                    <Text color="color300">{UserCallLabel[delivery.status]}</Text>
                     <Text variant={500} fontSize={20}>
-                      Caio AReis
+                      {user.name ?? ""}
                     </Text>
                   </Box>
                 </Box>
 
                 <Box alignSelf="center" backgroundColor="primary300" borderRadius="xl">
-                  <IconButton icon="Phone" color="bg100" />
+                  <IconButton
+                    icon="Phone"
+                    color="bg100"
+                    onPress={() => handleCallToClient(user.phone!)}
+                  />
                 </Box>
               </Box>
+
+              {delivery.userId && (
+                <Box
+                  px="md"
+                  py="xs"
+                  top={-14}
+                  right={8}
+                  borderRadius="xl"
+                  position="absolute"
+                  backgroundColor="secondary300"
+                >
+                  <Text variant={500}>Entrega Iniciada</Text>
+                </Box>
+              )}
             </Box>
 
-            <Button>Iniciar Entrega</Button>
+            <Button onPress={handlePress}>Iniciar Entrega</Button>
           </Box>
         )}
       </BottomSheet>
@@ -230,7 +293,7 @@ export default function Shipping() {
         flexDirection="row"
         position="absolute"
       >
-        <ShippingDetails />
+        <ShippingDetails delivery={delivery} />
 
         <Box backgroundColor="secondary300" borderRadius="xl">
           <IconButton icon="LocateFixed" color="color300" onPress={handleGoToCurrentPosition} />
