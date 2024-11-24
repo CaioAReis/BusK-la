@@ -2,7 +2,7 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { BoxProps, ResponsiveValue } from "@shopify/restyle";
 import { icons } from "lucide-react-native";
 import { ReactElement } from "react";
-import { Control, FieldErrors } from "react-hook-form";
+import { Control, FieldErrors, UseFormWatch } from "react-hook-form";
 import { DimensionValue, TextInputProps, TouchableOpacityProps } from "react-native";
 
 import { Theme } from "@/theme";
@@ -16,6 +16,7 @@ export type StepProps = {
   isHidden?: boolean;
   control: Control<AuthPhone>;
   errors: FieldErrors<AuthPhone>;
+  watch?: UseFormWatch<AuthPhone>;
 };
 
 export type UserData = {
@@ -69,10 +70,12 @@ export type DeliveryCardProps = {
   addresses: {
     toCollect: {
       address: string;
+      user: Partial<UserData>;
       coords: [number, number];
     };
     toDelivery: {
       address: string;
+      user: Partial<UserData>;
       coords: [number, number];
     };
   };

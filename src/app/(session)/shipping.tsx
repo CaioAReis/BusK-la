@@ -46,9 +46,9 @@ const ShippingDetails = () => {
       >
         {() => (
           <Box>
-            <SectionTitle icon="Package" title="Detalhes" />
+            <SectionTitle icon="Package" title="Detalhes da entrega" />
 
-            <Box gap="md" p="md" backgroundColor="bg100" mt="md" borderRadius="sm">
+            <Box mb="lg" gap="md" p="md" backgroundColor="bg100" mt="md" borderRadius="sm">
               <Box mb="md" flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Text variant={500} fontSize={16}>
                   <Text variant={500} color="primary300">
@@ -92,6 +92,8 @@ const ShippingDetails = () => {
                 </Box>
               </Box>
             </Box>
+
+            <Button>Iniciar Entrega</Button>
           </Box>
         )}
       </BottomSheet>

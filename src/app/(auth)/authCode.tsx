@@ -74,7 +74,7 @@ const Step1 = ({ control, errors }: StepProps) => (
   </Box>
 );
 
-const Step2 = ({ control, errors, isHidden }: StepProps) => (
+const Step2 = ({ control, watch, errors, isHidden }: StepProps) => (
   <Box px="ml" gap="lg" flex={1} width={width}>
     <Image
       resizeMode="contain"
@@ -89,7 +89,7 @@ const Step2 = ({ control, errors, isHidden }: StepProps) => (
       <Text color="color200">
         {"O código foi enviado para "}
         <Text color="primary300" variant={700}>
-          (79) 99999-9999
+          {phoneMask(watch!("phone"))}
         </Text>
       </Text>
     </Box>
@@ -134,6 +134,7 @@ export default function AuthCode() {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const {
+    watch,
     control,
     handleSubmit,
     formState: { errors },
@@ -184,7 +185,7 @@ export default function AuthCode() {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={isAndroid ? "height" : "padding"}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <Box backgroundColor="bg200" flex={1}>
+        <Box backgroundColor="bg200" flex={1} mt="ml">
           <Box
             px="md"
             py="sm"
@@ -216,7 +217,7 @@ export default function AuthCode() {
               onMomentumScrollEnd={(e) => updateStep(e.nativeEvent.contentOffset.x)}
             >
               <Step1 control={control} errors={errors} />
-              <Step2 control={control} errors={errors} isHidden={currentStep === 0} />
+              <Step2 watch={watch} control={control} errors={errors} isHidden={currentStep === 0} />
             </ScrollView>
 
             <Box px="md" flex={1}>

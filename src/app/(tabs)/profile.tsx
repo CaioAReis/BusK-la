@@ -109,7 +109,7 @@ export default function Profile() {
   return (
     <Box flex={1} backgroundColor="bg200">
       <ScrollView>
-        <Box px="md" gap="lg">
+        <Box px="md" gap="lg" mt="ml">
           <Box gap="sm" flexDirection="row" alignItems="center" my="md">
             <Avatar name={session?.name ?? ""} picture={session?.picture ?? ""} size={60} />
 

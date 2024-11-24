@@ -85,7 +85,7 @@ export default function History() {
           </Box>
         }
         ListHeaderComponent={
-          <Box borderWidth={0} g="sm">
+          <Box borderWidth={0} g="sm" mt="ml">
             <Box mt="md" backgroundColor="bg100" p="md" borderRadius="sm" gap="ml">
               <Box flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Box flex={1} alignItems="center" gap="md">

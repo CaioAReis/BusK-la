@@ -89,7 +89,7 @@ export default function Home() {
           </Box>
         }
         ListHeaderComponent={
-          <Box gap="xs">
+          <Box gap="xs" mt="ml">
             <Box gap="sm" flexDirection="row" alignItems="center" my="md">
               <Avatar name={session?.name ?? ""} picture={session?.picture ?? ""} size={60} />
 
