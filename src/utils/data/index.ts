@@ -51,186 +51,6 @@ export const DATA = {
     },
   ] as City[],
 
-  userDeliveryHistory: [
-    {
-      status: 2,
-      _id: "XYMP99JETIE4",
-      code: "XYMP99JETIE4",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.91002957448953, -37.672034730230585],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.914633335166796, -37.67558527404955],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 2,
-      _id: "O5XJCY6APE13",
-      code: "O5XJCY6APE13",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.914946209517728, -37.667937948901],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.910342453687322, -37.66566195927345],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 2,
-      _id: "I5FN8H9GUUWQ",
-      code: "I5FN8H9GUUWQ",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.912934868656029, -37.68009173351211],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.925851909503592, -37.674083120895375],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 2,
-      _id: "1DNRYPJURENP",
-      code: "1DNRYPJURENP",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.92245509507899, -37.667209632220185],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.92647763423682, -37.67927237724619],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-  ] as DeliveryCardProps[],
-
-  deliveriesOnWay: [
-    {
-      status: 0,
-      _id: "XYMP99JETIE4",
-      code: "XYMP99JETIE4",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.911817451183708, -37.66834762703395],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.917002232769976, -37.666344756161706],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 0,
-      _id: "O5XJCY6APE13",
-      code: "O5XJCY6APE13",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.914990905826688, -37.67576735321976],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.920488500543525, -37.66611715719896],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 0,
-      _id: "I5FN8H9GUUWQ",
-      code: "I5FN8H9GUUWQ",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.913739406634459, -37.67126089375722],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.913560620605262, -37.66256661337998],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-
-    {
-      status: 1,
-      _id: "1DNRYPJURENP",
-      code: "1DNRYPJURENP",
-      createdAt: new Date(),
-      userId: "ROKAUm05KyjGPGGSo93Q",
-      cityId: "KDFpA0ew9CWNM7LJeQBM",
-      addresses: {
-        toCollect: {
-          coords: [-10.920488500543525, -37.669349062470076],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-
-        toDelivery: {
-          coords: [-10.921337713418021, -37.66302181130549],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
-        },
-      },
-    },
-  ] as DeliveryCardProps[],
-
   deliveryList: [
     {
       status: 0,
@@ -534,6 +354,270 @@ export const DATA = {
 
         toDelivery: {
           coords: [-10.913560620605262, -37.661656217528964],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "2NTW0N8YFASK",
+      code: "2NTW0N8YFASK",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91002957448953, -37.672034730230585],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.914633335166796, -37.67558527404955],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "GZUM7W9XACL2",
+      code: "GZUM7W9XACL2",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.914946209517728, -37.667937948901],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.910342453687322, -37.66566195927345],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "PZX935M57NF1",
+      code: "PZX935M57NF1",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.916096479971023, -37.683953392753516],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.923337917042751, -37.67531084859492],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "OI4UQQZNYX3A",
+      code: "OI4UQQZNYX3A",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.92245509507899, -37.667209632220185],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.92647763423682, -37.67927237724619],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 0,
+      _id: "4CUAF3JQ9K9T",
+      code: "4CUAF3JQ9K9T",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.912984870754464, -37.668166345423806],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.920678972382628, -37.667359707969005],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 0,
+      _id: "WUJMCNESLY9R",
+      code: "WUJMCNESLY9R",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.909703502103397, -37.67047102386611],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.904565498019172, -37.67776032656796],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 0,
+      _id: "441G3QAF1ROM",
+      code: "441G3QAF1ROM",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.91367944868949, -37.67876483774585],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.913166549795461, -37.67157253771213],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 1,
+      _id: "ME1DYSFFZEDS",
+      code: "ME1DYSFFZEDS",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.914665790228193, -37.66691160584671],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.909970775207857, -37.66691160584671],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "YT7P01K0AF5X",
+      code: "YT7P01K0AF5X",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.923897788239307, -37.67651473270737],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.920268148042554, -37.68222035619782],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "6G67X63J1ZH3",
+      code: "6G67X63J1ZH3",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.917230262904454, -37.67446552990447],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.915888849188821, -37.66896080864961],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "7U7M8X5NBGQO",
+      code: "7U7M8X5NBGQO",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.925714865014077, -37.67942334392965],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.926529258050612, -37.67404217337606],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+      },
+    },
+
+    {
+      status: 2,
+      _id: "SYNL0ITQOYFX",
+      code: "SYNL0ITQOYFX",
+      createdAt: new Date(),
+      userId: "ROKAUm05KyjGPGGSo93Q",
+      cityId: "KDFpA0ew9CWNM7LJeQBM",
+      addresses: {
+        toCollect: {
+          coords: [-10.904684763031193, -37.669164876444285],
+          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
+          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+        },
+
+        toDelivery: {
+          coords: [-10.910599134196785, -37.664291341851914],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
           user: { name: "José Antônio", picture: "", phone: "79999999999" },
         },

@@ -42,6 +42,24 @@ export const API = {
     return { error: false, message: "", list: result };
   },
 
+  startDelivery: async (deliveryId: string) => {
+    if (deliveryId) return { error: false, message: "Entrega Iniciada" };
+
+    return { error: true, message: "Entrega não encontrada" };
+  },
+
+  confirmCollect: async (deliveryId: string) => {
+    if (deliveryId) return { error: false, message: "Coleta Confirmada" };
+
+    return { error: true, message: "Entrega não encontrada" };
+  },
+
+  confirmDelivery: async (deliveryId: string) => {
+    if (deliveryId) return { error: false, message: "Entrega Confirmada" };
+
+    return { error: true, message: "Entrega não encontrada" };
+  },
+
   getDelivery: async (deliveryId: string) => {
     const result = DATA.deliveryList.find((delivery) => delivery._id === deliveryId);
 
@@ -49,15 +67,25 @@ export const API = {
   },
 
   getUserDeliveryList: async (userId: string) => {
-    if (userId === "ROKAUm05KyjGPGGSo93Q")
-      return { error: false, message: "", list: DATA.deliveriesOnWay };
+    if (userId === "ROKAUm05KyjGPGGSo93Q") {
+      const result = DATA.deliveryList.filter(
+        (delivery) => delivery.userId === userId && delivery.status < 2
+      );
+
+      return { error: false, message: "", list: result };
+    }
 
     return { error: false, message: "", list: [] };
   },
 
   getDeliveryHistory: async (userId: string) => {
-    if (userId === "ROKAUm05KyjGPGGSo93Q")
-      return { error: false, message: "", list: DATA.userDeliveryHistory };
+    if (userId === "ROKAUm05KyjGPGGSo93Q") {
+      const result = DATA.deliveryList.filter(
+        (delivery) => delivery.userId === userId && delivery.status === 2
+      );
+
+      return { message: "", error: false, list: result };
+    }
 
     return { error: false, message: "", list: [] };
   },
