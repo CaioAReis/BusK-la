@@ -31,7 +31,7 @@ export function DeliveryCard({
   ...boxProps
 }: Partial<DeliveryCardProps>) {
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
+    <TouchableOpacity onPress={started ? () => null : onPress} activeOpacity={0.7}>
       <Box
         p="ms"
         mb="sm"
@@ -51,7 +51,7 @@ export function DeliveryCard({
           </Text>
 
           {started ? (
-            <Button paddingVertical="xs" paddingHorizontal="ml">
+            <Button onPress={onPress} paddingVertical="xs" paddingHorizontal="ml">
               Detalhes
             </Button>
           ) : (

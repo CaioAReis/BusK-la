@@ -6,7 +6,7 @@ import {
 } from "expo-location";
 import { router, useLocalSearchParams } from "expo-router";
 import { useContext, useEffect, useRef, useState } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
 
 import {
@@ -40,24 +40,43 @@ const UserCallLabel = {
   2: "Entregue para:",
 };
 
-const ShippingDetails = ({ delivery }: { delivery: DeliveryCardProps }) => {
+const ButtonLabel = {
+  0: "Confirmar Coleta",
+  1: "Confirmar Entrega",
+  2: "",
+};
+
+type ShippingDetailsProps = {
+  delivery: DeliveryCardProps;
+  setDelivery: React.Dispatch<React.SetStateAction<DeliveryCardProps | null>>;
+};
+
+const ShippingDetails = ({ delivery, setDelivery }: ShippingDetailsProps) => {
+  const { session } = useContext(AppContext);
+
   const user =
     delivery.status === 0 ? delivery.addresses.toCollect.user : delivery.addresses.toDelivery.user;
 
   const handleStartDelivery = () => {
-    alert("Começar");
+    API.startDelivery(delivery._id).then(() =>
+      setDelivery((prev) => ({ ...prev!, userId: session!._id }))
+    );
   };
 
   const handleCollectPackege = () => {
-    alert("Começar");
+    API.confirmCollect(delivery._id).then(() => {
+      setDelivery((prev) => ({ ...prev!, status: 1 }));
+    });
   };
 
   const handleDeliveryPackege = () => {
-    alert("Começar");
+    API.confirmDelivery(delivery._id).then(() => {
+      setDelivery((prev) => ({ ...prev!, status: 2 }));
+    });
   };
 
   const handleCallToClient = (phone: string) => {
-    alert("Ligar para: " + phone);
+    router.push(`tel://${phone}`);
   };
 
   const handlePress = () => {
@@ -90,7 +109,13 @@ const ShippingDetails = ({ delivery }: { delivery: DeliveryCardProps }) => {
               borderRadius="sm"
               position="relative"
               backgroundColor="bg100"
-              borderColor={delivery.userId ? "secondary300" : "transparent"}
+              borderColor={
+                delivery.userId
+                  ? delivery.status < 2
+                    ? "secondary300"
+                    : "success300"
+                  : "transparent"
+              }
             >
               <Box mb="md" flexDirection="row" justifyContent="space-between" alignItems="center">
                 <Text variant={500} fontSize={16}>
@@ -102,7 +127,7 @@ const ShippingDetails = ({ delivery }: { delivery: DeliveryCardProps }) => {
                 <Text color="color500">{customDate(delivery.createdAt)}</Text>
               </Box>
 
-              <StepsLine status={0} />
+              <StepsLine status={delivery.status} />
 
               <Divider />
 
@@ -149,14 +174,20 @@ const ShippingDetails = ({ delivery }: { delivery: DeliveryCardProps }) => {
                   right={8}
                   borderRadius="xl"
                   position="absolute"
-                  backgroundColor="secondary300"
+                  backgroundColor={delivery.status < 2 ? "secondary300" : "success200"}
                 >
-                  <Text variant={500}>Entrega Iniciada</Text>
+                  <Text variant={500}>
+                    {delivery.status < 2 ? "Entrega Iniciada" : "Entrega Realizada"}
+                  </Text>
                 </Box>
               )}
             </Box>
 
-            <Button onPress={handlePress}>Iniciar Entrega</Button>
+            {delivery.status < 2 && (
+              <Button color="error300" onPress={handlePress}>
+                {!delivery.userId ? "Iniciar Entrega" : ButtonLabel[delivery.status]}
+              </Button>
+            )}
           </Box>
         )}
       </BottomSheet>
@@ -192,6 +223,7 @@ export default function Shipping() {
   };
 
   useEffect(() => {
+    console.warn(deliveryId);
     API.getDelivery(deliveryId as string).then((result) => {
       if (!result.error) return setDelivery(result.delivery as DeliveryCardProps);
     });
@@ -211,9 +243,9 @@ export default function Shipping() {
           showsUserLocation
           showsCompass={false}
           showsMyLocationButton={false}
+          showsPointsOfInterest={false}
           customMapStyle={customMapStyle}
-          style={{ borderWidth: 1, flex: 1, width: "100%" }}
-          provider={PROVIDER_GOOGLE}
+          style={{ flex: 1, width: "100%" }}
           camera={{
             pitch: 1,
             zoom: 16,
@@ -272,9 +304,9 @@ export default function Shipping() {
               latitude: delivery.addresses.toCollect.coords[0],
               longitude: delivery.addresses.toCollect.coords[1],
             }}
-            strokeWidth={3}
+            strokeWidth={2}
             apikey={DIRECTION_KEY}
-            lineDashPattern={[8, 12]}
+            lineDashPattern={[2, 3]}
             strokeColor={colors.green}
           />
         </MapView>
@@ -293,7 +325,7 @@ export default function Shipping() {
         flexDirection="row"
         position="absolute"
       >
-        <ShippingDetails delivery={delivery} />
+        <ShippingDetails delivery={delivery} setDelivery={setDelivery} />
 
         <Box backgroundColor="secondary300" borderRadius="xl">
           <IconButton icon="LocateFixed" color="color300" onPress={handleGoToCurrentPosition} />

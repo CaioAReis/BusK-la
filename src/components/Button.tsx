@@ -18,7 +18,10 @@ const Box = createRestyleComponent<BoxCustomProps, Theme>([
   createVariant({ themeKey: "buttonVariants" }),
 ]);
 
-type ButtonProps = { children?: string } & BoxCustomProps & TouchableOpacityProps;
+type ButtonProps = {
+  children?: string;
+  color?: keyof Theme["colors"];
+} & BoxCustomProps & TouchableOpacityProps;
 
 export const Button = (props: ButtonProps) => {
   return (

@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { useRef, useState } from "react";
 import { ScrollView } from "react-native";
 
@@ -42,6 +43,12 @@ export function DeliveriesStarted({ list }: DeliveriesStartedProps) {
               status={item?.status}
               addresses={item?.addresses}
               createdAt={item?.createdAt}
+              onPress={() =>
+                router.push({
+                  pathname: "/(session)/shipping",
+                  params: { deliveryId: item?._id },
+                })
+              }
             />
           ))}
         </ScrollView>

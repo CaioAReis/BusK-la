@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { icons } from "lucide-react-native";
 import { useContext, useEffect, useState } from "react";
 import { FlatList, Image } from "react-native";
@@ -62,6 +63,12 @@ export default function History() {
             status={item?.status}
             addresses={item?.addresses}
             createdAt={item?.createdAt}
+            onPress={() =>
+              router.push({
+                pathname: "/(session)/shipping",
+                params: { deliveryId: item?._id },
+              })
+            }
           />
         )}
         ListEmptyComponent={
