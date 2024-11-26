@@ -30,7 +30,7 @@ import { DeliveryCardProps } from "@/utils/types";
 
 const AddressLabel = {
   0: "Coleta",
-  1: "Levando para",
+  1: "Indo para",
   2: "Entregue em",
 };
 
@@ -134,10 +134,10 @@ const ShippingDetails = ({ delivery, setDelivery }: ShippingDetailsProps) => {
               <Box gap="sm">
                 <Box flexDirection="row" alignItems="center" gap="sm">
                   <Icon icon="MapPin" size={24} color="color500" />
-                  <Text color="color500">{AddressLabel[0]}</Text>
+                  <Text color="color500">{AddressLabel[delivery.status]}</Text>
                 </Box>
 
-                <Text variant={500} textAlign="center" color="color200">
+                <Text variant={500} textAlign="center" color="primary300">
                   {delivery.status === 0
                     ? delivery.addresses.toCollect.address
                     : delivery.addresses.toDelivery.address}
@@ -148,10 +148,10 @@ const ShippingDetails = ({ delivery, setDelivery }: ShippingDetailsProps) => {
 
               <Box flexDirection="row" gap="sm">
                 <Box flex={1} flexDirection="row" alignItems="center" gap="sm">
-                  <Avatar size={60} name={user.name ?? ""} picture={user.picture} />
+                  <Avatar size={40} name={user.name ?? ""} picture={user.picture} />
                   <Box gap="xs" flex={1}>
                     <Text color="color300">{UserCallLabel[delivery.status]}</Text>
-                    <Text variant={500} fontSize={20}>
+                    <Text numberOfLines={1} variant={500} fontSize={16}>
                       {user.name ?? ""}
                     </Text>
                   </Box>
@@ -159,6 +159,7 @@ const ShippingDetails = ({ delivery, setDelivery }: ShippingDetailsProps) => {
 
                 <Box alignSelf="center" backgroundColor="primary300" borderRadius="xl">
                   <IconButton
+                    size={20}
                     icon="Phone"
                     color="bg100"
                     onPress={() => handleCallToClient(user.phone!)}
@@ -223,7 +224,6 @@ export default function Shipping() {
   };
 
   useEffect(() => {
-    console.warn(deliveryId);
     API.getDelivery(deliveryId as string).then((result) => {
       if (!result.error) return setDelivery(result.delivery as DeliveryCardProps);
     });
@@ -235,6 +235,19 @@ export default function Shipping() {
 
   if (!delivery) return;
 
+  const StartRegion = {
+    0: [position?.coords.latitude, position?.coords.longitude],
+    1: delivery?.addresses.toDelivery.coords,
+    2: delivery?.addresses.toDelivery.coords,
+  };
+
+  const initialRegion = {
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    latitude: StartRegion[delivery!.status]![0] ?? defaultCity.coords[0],
+    longitude: StartRegion[delivery!.status]![1] ?? defaultCity.coords[1],
+  };
+
   return (
     <Box flex={1} position="relative" backgroundColor="primaryAlpha400">
       {position && (
@@ -244,71 +257,71 @@ export default function Shipping() {
           showsCompass={false}
           showsMyLocationButton={false}
           showsPointsOfInterest={false}
+          initialRegion={initialRegion}
           customMapStyle={customMapStyle}
           style={{ flex: 1, width: "100%" }}
-          camera={{
-            pitch: 1,
-            zoom: 16,
-            heading: 1,
-            center: {
-              latitude: position?.coords.latitude ?? defaultCity.coords[0],
-              longitude: position?.coords.longitude ?? defaultCity.coords[1],
-            },
-          }}
-          initialRegion={{
-            latitude: defaultCity.coords[0],
-            longitude: defaultCity.coords[1],
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01,
-          }}
         >
-          <Marker
-            style={{ transform: [{ scale: 0.5 }] }}
-            pinColor={colors.primary300}
-            image={require("@/assets/images/Collect.png")}
-            coordinate={{
-              latitude: delivery.addresses.toCollect.coords[0],
-              longitude: delivery.addresses.toCollect.coords[1],
-            }}
-          />
+          {delivery.status !== 2 && (
+            <Marker
+              style={{ transform: [{ scale: 0.5 }] }}
+              pinColor={colors.primary300}
+              image={
+                delivery.status === 1
+                  ? require("@/assets/images/OnWay.png")
+                  : require("@/assets/images/Collect.png")
+              }
+              coordinate={{
+                latitude: delivery.addresses.toCollect.coords[0],
+                longitude: delivery.addresses.toCollect.coords[1],
+              }}
+            />
+          )}
 
           <Marker
             pinColor={colors.secondary300}
-            image={require("@/assets/images/Delivery.png")}
+            image={
+              delivery.status === 2
+                ? require("@/assets/images/OnWay.png")
+                : require("@/assets/images/Delivery.png")
+            }
             coordinate={{
               latitude: delivery.addresses.toDelivery.coords[0],
               longitude: delivery.addresses.toDelivery.coords[1],
             }}
           />
 
-          <MapViewDirections
-            origin={{
-              latitude: delivery.addresses.toCollect.coords[0],
-              longitude: delivery.addresses.toCollect.coords[1],
-            }}
-            destination={{
-              latitude: delivery.addresses.toDelivery.coords[0],
-              longitude: delivery.addresses.toDelivery.coords[1],
-            }}
-            strokeWidth={3}
-            apikey={DIRECTION_KEY}
-            strokeColor={colors.secondary300}
-          />
+          {delivery.status < 2 && (
+            <MapViewDirections
+              origin={{
+                latitude: delivery.addresses.toCollect.coords[0],
+                longitude: delivery.addresses.toCollect.coords[1],
+              }}
+              destination={{
+                latitude: delivery.addresses.toDelivery.coords[0],
+                longitude: delivery.addresses.toDelivery.coords[1],
+              }}
+              strokeWidth={3}
+              apikey={DIRECTION_KEY}
+              strokeColor={colors.secondary300}
+            />
+          )}
 
-          <MapViewDirections
-            origin={{
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            }}
-            destination={{
-              latitude: delivery.addresses.toCollect.coords[0],
-              longitude: delivery.addresses.toCollect.coords[1],
-            }}
-            strokeWidth={2}
-            apikey={DIRECTION_KEY}
-            lineDashPattern={[2, 3]}
-            strokeColor={colors.green}
-          />
+          {delivery.status === 0 && (
+            <MapViewDirections
+              origin={{
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+              }}
+              destination={{
+                latitude: delivery.addresses.toCollect.coords[0],
+                longitude: delivery.addresses.toCollect.coords[1],
+              }}
+              strokeWidth={2}
+              apikey={DIRECTION_KEY}
+              lineDashPattern={[2, 3]}
+              strokeColor={colors.green}
+            />
+          )}
         </MapView>
       )}
 

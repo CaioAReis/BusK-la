@@ -63,13 +63,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.923199302869017, -37.67696861332419],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Sophia Ayla Jesus", picture: "", phone: "79986365005" },
         },
 
         toDelivery: {
           coords: [-10.91564482988727, -37.67127265944143],
-          address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "Maria Silva", picture: "", phone: "79999999999" },
+          address: "Avenida Segundo de Maio 1391, Nº 349 - Centro",
+          user: { name: "Mariana Andreia Lorena Nunes", picture: "", phone: "79983687951" },
         },
       },
     },
@@ -85,13 +85,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.922169942886716, -37.66708578852559],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Mirella Valentina Luiza da Silva", picture: "", phone: "79989178479" },
         },
 
         toDelivery: {
           coords: [-10.914062608943263, -37.66718069416629],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Murilo Lucca Bento Moraes", picture: "", phone: "79988899855" },
         },
       },
     },
@@ -107,13 +107,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.91336369048552, -37.66570965673538],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Alícia Isabela Luzia", picture: "", phone: "79986535413" },
         },
 
         toDelivery: {
           coords: [-10.914901308922516, -37.675674749009325],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Osvaldo Pietro Moraes", picture: "", phone: "79981156294" },
         },
       },
     },
@@ -129,13 +129,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.916485513534905, -37.672020881842215],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Mateus Ryan Aragão", picture: "", phone: "79984450520" },
         },
 
         toDelivery: {
           coords: [-10.913643258065878, -37.66931607108214],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Mariah Vanessa Sophia", picture: "", phone: "79995105302" },
         },
       },
     },
@@ -151,13 +151,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.924224947626133, -37.677369405056616],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Caleb Theo Aragão", picture: "", phone: "79992030925" },
         },
 
         toDelivery: {
           coords: [-10.917403623901327, -37.6731043909772],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Leonardo Manoel Pinto", picture: "", phone: "79987552584" },
         },
       },
     },
@@ -173,13 +173,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.917921704618932, -37.66756426959567],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Elisa Simone", picture: "", phone: "79998665463" },
         },
 
         toDelivery: {
           coords: [-10.91692871578308, -37.675039036539],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Carlos Davi Pinto", picture: "", phone: "79997085639" },
         },
       },
     },
@@ -195,13 +195,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.911834199128164, -37.66848762315926],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Tiago Anthony Kauê Souza", picture: "", phone: "79992383275" },
         },
 
         toDelivery: {
           coords: [-10.915072249490775, -37.66558565481657],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Cláudia Sabrina", picture: "", phone: "79988425772" },
         },
       },
     },
@@ -217,13 +217,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.921114236581246, -37.68268636168751],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Giovanni Augusto Daniel Souza", picture: "", phone: "79998219232" },
         },
 
         toDelivery: {
           coords: [-10.922857351447533, -37.67148849271997],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Miguel Ian Mário Pereira", picture: "", phone: "79982687441" },
         },
       },
     },
@@ -239,13 +239,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.919952154318906, -37.66479708321498],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Gabrielly Bárbara", picture: "", phone: "79988915424" },
         },
 
         toDelivery: {
           coords: [-10.915214387270598, -37.67863510015047],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Francisco Levi Pereira", picture: "", phone: "79984378166" },
         },
       },
     },
@@ -261,13 +261,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.916108311365184, -37.67340032400711],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Elisa Marcela Fabiana de Paula", picture: "", phone: "79993634805" },
         },
 
         toDelivery: {
           coords: [-10.919326415832579, -37.66734619159784],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Cristiane Esther Jennifer", picture: "", phone: "79995962341" },
         },
       },
     },
@@ -283,13 +283,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.912219721957749, -37.66110998001835],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Rodrigo Thiago de Paula", picture: "", phone: "79986146255" },
         },
 
         toDelivery: {
           coords: [-10.911906844736102, -37.668848344752014],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Elias Bernardo Francisco Moreira", picture: "", phone: "79994145930" },
         },
       },
     },
@@ -305,13 +305,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.911146998683671, -37.679181337661085],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Allana Helena", picture: "", phone: "79997340878" },
         },
 
         toDelivery: {
           coords: [-10.919371111482477, -37.66998633956579],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Raul Raul Henrique Moreira", picture: "", phone: "79984556173" },
         },
       },
     },
@@ -327,13 +327,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.913784103124941, -37.669212503092425],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Sandra Lúcia Alícia Corte Real", picture: "", phone: "79987620314" },
         },
 
         toDelivery: {
           coords: [-10.91570604585547, -37.681639406458835],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Stefany Isabel", picture: "", phone: "79997340878" },
         },
       },
     },
@@ -349,13 +349,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.919996849874622, -37.66274869255018],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Victor Augusto Yuri Nunes", picture: "", phone: "79988035293" },
         },
 
         toDelivery: {
           coords: [-10.913560620605262, -37.661656217528964],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Jennifer Vera", picture: "", phone: "79989510205" },
         },
       },
     },
@@ -371,13 +371,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.91002957448953, -37.672034730230585],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Fábio Mateus Nunes", picture: "", phone: "79991464310" },
         },
 
         toDelivery: {
           coords: [-10.914633335166796, -37.67558527404955],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "André Enzo Vinicius Lopes", picture: "", phone: "79984179642" },
         },
       },
     },
@@ -393,13 +393,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.914946209517728, -37.667937948901],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Yasmin Andrea", picture: "", phone: "79987077145" },
         },
 
         toDelivery: {
           coords: [-10.910342453687322, -37.66566195927345],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Carlos Eduardo Paulo Lopes", picture: "", phone: "79994786877" },
         },
       },
     },
@@ -415,13 +415,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.916096479971023, -37.683953392753516],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Marlene Mirella Carvalho", picture: "", phone: "79985561994" },
         },
 
         toDelivery: {
           coords: [-10.923337917042751, -37.67531084859492],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Aparecida Liz", picture: "", phone: "79995589298" },
         },
       },
     },
@@ -437,13 +437,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.92245509507899, -37.667209632220185],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Ruan Raimundo Julio Carvalho", picture: "", phone: "79998094231" },
         },
 
         toDelivery: {
           coords: [-10.92647763423682, -37.67927237724619],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Marcos Vinicius Breno Aragão", picture: "", phone: "79981511434" },
         },
       },
     },
@@ -459,13 +459,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.912984870754464, -37.668166345423806],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Carla Sophia Flávia", picture: "", phone: "79989766024" },
         },
 
         toDelivery: {
           coords: [-10.920678972382628, -37.667359707969005],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Carlos Antonio Aragão", picture: "", phone: "79995185494" },
         },
       },
     },
@@ -481,13 +481,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.909703502103397, -37.67047102386611],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Aline Letícia Costa", picture: "", phone: "79994651144" },
         },
 
         toDelivery: {
           coords: [-10.904565498019172, -37.67776032656796],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Vera Josefa Luna", picture: "", phone: "79997526958" },
         },
       },
     },
@@ -503,13 +503,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.91367944868949, -37.67876483774585],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Thales Márcio Costa", picture: "", phone: "79995186293" },
         },
 
         toDelivery: {
           coords: [-10.913166549795461, -37.67157253771213],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Lavínia Sara Pinto", picture: "", phone: "79999835538" },
         },
       },
     },
@@ -525,13 +525,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.914665790228193, -37.66691160584671],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Sophia Brenda", picture: "", phone: "79984847860" },
         },
 
         toDelivery: {
           coords: [-10.909970775207857, -37.66691160584671],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Vinicius Paulo Pinto", picture: "", phone: "79995455622" },
         },
       },
     },
@@ -547,13 +547,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.923897788239307, -37.67651473270737],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Hugo Cauê Henrique da Rosa", picture: "", phone: "79991608279" },
         },
 
         toDelivery: {
           coords: [-10.920268148042554, -37.68222035619782],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Olivia Lívia", picture: "", phone: "79991812685" },
         },
       },
     },
@@ -569,13 +569,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.917230262904454, -37.67446552990447],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Luís Matheus da Rosa", picture: "", phone: "79984289583" },
         },
 
         toDelivery: {
           coords: [-10.915888849188821, -37.66896080864961],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Levi Guilherme da Mata", picture: "", phone: "79982542950" },
         },
       },
     },
@@ -591,13 +591,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.925714865014077, -37.67942334392965],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Ester Mirella", picture: "", phone: "79984289583" },
         },
 
         toDelivery: {
           coords: [-10.926529258050612, -37.67404217337606],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Joaquim Rafael da Mata", picture: "", phone: "79992057374" },
         },
       },
     },
@@ -613,13 +613,13 @@ export const DATA = {
         toCollect: {
           coords: [-10.904684763031193, -37.669164876444285],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Carlos Eduardo Samuel Francisco Dias", picture: "", phone: "79998893583" },
         },
 
         toDelivery: {
           coords: [-10.910599134196785, -37.664291341851914],
           address: "Avenida Primeiro de Maio 1391, Nº 349 - Centro",
-          user: { name: "José Antônio", picture: "", phone: "79999999999" },
+          user: { name: "Luzia Maya Alana", picture: "", phone: "79983576876" },
         },
       },
     },
