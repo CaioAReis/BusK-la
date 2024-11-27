@@ -13,7 +13,7 @@ type CreateUserFormProps = {
   control: Control<UserData, any>;
 };
 
-export function CreateUserForm({ control, errors, onSubmit }: CreateUserFormProps) {
+export function UserForm({ control, errors, onSubmit }: CreateUserFormProps) {
   return (
     <Box px="ml" py="md" gap="ml" mb="xl">
       <Controller

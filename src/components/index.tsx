@@ -6,6 +6,7 @@ import { DeliveriesStarted } from "./DeliveriesStarteds";
 import { DeliveryCard } from "./DeliveryCard";
 import { Divider } from "./Divider";
 import { Dot } from "./Dot";
+import { Header } from "./Header";
 import { Icon } from "./Icon";
 import { IconButton } from "./IconButton";
 import { Input } from "./Input";
@@ -26,6 +27,7 @@ export {
   Icon,
   Input,
   Avatar,
+  Header,
   Button,
   Option,
   Divider,
