@@ -65,8 +65,8 @@ export default function History() {
             createdAt={item?.createdAt}
             onPress={() =>
               router.push({
-                pathname: "/(session)/shipping",
-                params: { deliveryId: item?._id },
+                params: { id: item?._id },
+                pathname: "/(session)/delivery/[id]",
               })
             }
           />

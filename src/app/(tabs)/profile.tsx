@@ -127,7 +127,7 @@ export default function Profile() {
             </Text>
 
             <Box borderRadius="sm" overflow="hidden" backgroundColor="bg100">
-              <Option onPress={() => router.push("/(session)/editProfile")} leftIcon="UserRound">
+              <Option onPress={() => router.push("/(session)/updateAccount")} leftIcon="UserRound">
                 Editar Perfil
               </Option>
 
