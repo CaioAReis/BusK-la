@@ -8,22 +8,16 @@ import { Box } from "@/components";
 import { customMapStyle } from "@/utils/constants/customMapStyle";
 
 export default function Delivery() {
-  const {
-    colors,
-    _mapRef,
-    position,
-    delivery,
-    onGoBack,
-    setDelivery,
-    initialRegion,
-    onGoToCurrentPosition,
-  } = useDelivery();
+  const { colors, _mapRef, position, delivery, onGoBack, setDelivery, onGoToCurrentPosition } =
+    useDelivery();
 
-  const { collectCoords, collectPinImage, deliveryCoords, deliveryPinImage } = useMarkers({
-    delivery,
-  });
+  const { initialRegion, collectCoords, collectPinImage, deliveryCoords, deliveryPinImage } =
+    useMarkers({
+      delivery,
+      position,
+    });
 
-  if (!delivery) return;
+  if (!delivery || !position) return;
 
   return (
     <Box flex={1} position="relative" backgroundColor="primaryAlpha400">

@@ -36,7 +36,7 @@ export function useDeliveryDetails({ delivery, setDelivery }: ShippingDetailsPro
     router.push(`tel://${phone}`);
   };
 
-  const handlePress = () => {
+  const handleDeliveryChange = () => {
     if (!delivery.userId) return handleStartDelivery();
 
     if (delivery.status === 0) return handleCollectPackege();
@@ -44,5 +44,5 @@ export function useDeliveryDetails({ delivery, setDelivery }: ShippingDetailsPro
     return handleDeliveryPackege();
   };
 
-  return { handlePress, handleCallToClient, user, currentDelivery };
+  return { handleDeliveryChange, handleCallToClient, user, currentDelivery };
 }

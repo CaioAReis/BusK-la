@@ -1,6 +1,17 @@
+import { LocationObject } from "expo-location";
+import { useContext } from "react";
+
+import AppContext from "@/utils/contexts/AppContext";
 import { DeliveryCardProps } from "@/utils/types";
 
-export function useMarkers({ delivery }: { delivery: DeliveryCardProps | null }) {
+type MarkersProps = {
+  position: LocationObject | null;
+  delivery: DeliveryCardProps | null;
+};
+
+export function useMarkers({ delivery, position }: MarkersProps) {
+  const { defaultCity } = useContext(AppContext);
+
   const collectPinImage =
     delivery?.status === 1
       ? require("@/assets/images/OnWay.png")
@@ -21,5 +32,18 @@ export function useMarkers({ delivery }: { delivery: DeliveryCardProps | null })
     longitude: delivery?.addresses.toDelivery.coords[1] ?? 0,
   };
 
-  return { collectCoords, collectPinImage, deliveryCoords, deliveryPinImage };
+  const StartRegion = {
+    0: [position?.coords.latitude, position?.coords.longitude],
+    1: delivery?.addresses.toDelivery.coords,
+    2: delivery?.addresses.toDelivery.coords,
+  };
+
+  const initialRegion = {
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+    latitude: StartRegion[delivery?.status ?? 0]![0] ?? defaultCity.coords[0],
+    longitude: StartRegion[delivery?.status ?? 0]![1] ?? defaultCity.coords[1],
+  };
+
+  return { collectCoords, collectPinImage, deliveryCoords, deliveryPinImage, initialRegion };
 }

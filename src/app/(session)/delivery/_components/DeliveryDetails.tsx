@@ -39,7 +39,7 @@ export type ShippingDetailsProps = {
 };
 
 export function DeliveryDetails({ delivery, setDelivery }: ShippingDetailsProps) {
-  const { user, handlePress, currentDelivery, handleCallToClient } = useDeliveryDetails({
+  const { user, handleDeliveryChange, currentDelivery, handleCallToClient } = useDeliveryDetails({
     delivery,
     setDelivery,
   });
@@ -140,7 +140,7 @@ export function DeliveryDetails({ delivery, setDelivery }: ShippingDetailsProps)
             </Box>
 
             {delivery.status < 2 && (
-              <Button color="error300" onPress={handlePress}>
+              <Button color="error300" onPress={handleDeliveryChange}>
                 {!delivery.userId ? "Iniciar Entrega" : ButtonLabel[delivery.status]}
               </Button>
             )}
