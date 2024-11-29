@@ -26,7 +26,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="history"
+        name="history/index"
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon name="code" icon="ChartNoAxesColumn" focused={focused} />
