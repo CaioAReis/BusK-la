@@ -34,7 +34,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="profile/index"
         options={{
           tabBarIcon: ({ focused }) => (
             <TabBarIcon name="code" icon="UserRound" focused={focused} />
