@@ -24,7 +24,7 @@ export function useCreateUser() {
     API.createAccount(data)
       .then((result) => {
         setSession(result.user);
-        //  Salvar usuário no localStorage
+        //  Save user on localStorage
         router.push("/(tabs)");
       })
       .catch()

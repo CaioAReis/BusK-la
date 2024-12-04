@@ -17,8 +17,7 @@ export function LogOutModal() {
   const handleCloseModal = useCallback(() => setIsOpen(false), []);
 
   const handleLogOut = () => {
-    //  Limpar localStorage
-
+    //  Clear user on localStorage
     handleCloseModal();
     router.push("/(auth)/authCode");
     setSession(null);

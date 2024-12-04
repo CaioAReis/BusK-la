@@ -32,7 +32,7 @@ export function useUpdateAccount() {
     API.createAccount(data)
       .then(() => {
         setSession({ ...session, ...data });
-        //  Salvar usuário no localStorage
+        //  Update user on localStorage
         router.back();
       })
       .catch((error) => console.error(error))

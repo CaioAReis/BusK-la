@@ -36,7 +36,7 @@ export function useAuthCode() {
 
         if (result?.user) {
           setSession(result.user);
-          //  Salvar usuário no localStorage
+          //  Save user on localStorage
           router.push("/(tabs)");
           return result?.user;
         }
