@@ -20,7 +20,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="index/index"
         options={{
           tabBarIcon: ({ focused }) => <TabBarIcon name="code" icon="House" focused={focused} />,
         }}
