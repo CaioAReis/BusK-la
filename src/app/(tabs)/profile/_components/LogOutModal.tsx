@@ -19,7 +19,7 @@ export function LogOutModal() {
   const handleLogOut = () => {
     //  Clear user on localStorage
     handleCloseModal();
-    router.push("/(auth)/authCode");
+    router.replace("/");
     setSession(null);
   };
 

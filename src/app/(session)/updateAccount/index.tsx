@@ -17,7 +17,12 @@ export default function EditProfile() {
             <Box backgroundColor="bg200" flex={1}>
               <Header title="Editar perfil" onGoback={handleGoBack} />
 
-              <UserForm control={control} errors={errors} onSubmit={handleSubmit(onSubmit)} />
+              <UserForm
+                errors={errors}
+                control={control}
+                buttonLabel="Salvar Alterações"
+                onSubmit={handleSubmit(onSubmit)}
+              />
             </Box>
           </ScrollView>
         </Box>

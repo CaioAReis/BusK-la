@@ -37,7 +37,12 @@ export function BottomSheet({
 
   const backdrop = useCallback(
     (props: BottomSheetDefaultBackdropProps) => (
-      <BottomSheetBackdrop {...props} disappearsOnIndex={-1} appearsOnIndex={1} />
+      <BottomSheetBackdrop
+        {...props}
+        appearsOnIndex={1}
+        disappearsOnIndex={-1}
+        onPress={handleCloseModalPress}
+      />
     ),
     []
   );

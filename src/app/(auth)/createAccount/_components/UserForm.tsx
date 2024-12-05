@@ -8,12 +8,13 @@ import { validate } from "@/utils/constants/validations";
 import { UserData } from "@/utils/types";
 
 type CreateUserFormProps = {
+  buttonLabel?: string;
   onSubmit: VoidFunction;
   errors: FieldErrors<UserData>;
   control: Control<UserData, any>;
 };
 
-export function UserForm({ control, errors, onSubmit }: CreateUserFormProps) {
+export function UserForm({ control, errors, onSubmit, buttonLabel }: CreateUserFormProps) {
   return (
     <Box px="ml" py="md" gap="ml" mb="xl">
       <Controller
@@ -114,7 +115,7 @@ export function UserForm({ control, errors, onSubmit }: CreateUserFormProps) {
       <SelectVehicleForm control={control} errors={errors} />
 
       <Button onPress={onSubmit} marginTop="lg">
-        Criar conta
+        {buttonLabel ?? "Criar conta"}
       </Button>
     </Box>
   );

@@ -3,7 +3,7 @@ import { AuthPhone, City, DeliveryCardProps, NotificationCardProps, UserData } f
 export const DATA = {
   signIn: {
     code: "918312",
-    phone: "79996712821",
+    phone: "79999999999",
   } as AuthPhone,
 
   user: {
