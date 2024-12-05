@@ -25,45 +25,39 @@ Basta lê o QrCode gerado atraves do aplicativo do Expo Go instalado em seu smar
 
 ## Resultado
 <p align="center" display="flex">
-  <img src = "./result/Start.png" width=250>
-  <img src = "./result/Signin.png" width=250>
-  <img src = "./result/Signup.png" width=250>
+  <img src = "./assets/results/01.png" width=250>
+  <img src = "./assets/results/02.png" width=250>
+  <img src = "./assets/results/03.png" width=250>
 </p>
  
 <p align="center" display="flex">
-  <img src = "./result/Profiles.png" width=250>
-  <img src = "./result/New_profile.png" width=250>
-  <img src = "./result/Home1.png" width=250>
+  <img src = "./assets/results/04.png" width=250>
+  <img src = "./assets/results/05.png" width=250>
+  <img src = "./assets/results/006.png" width=250>
 </p>
 
 <p align="center" display="flex">
-  <img src = "./result/Home2.png" width=250>
-  <img src = "./result/Search1.png" width=250>
-  <img src = "./result/Search2.png" width=250>
+  <img src = "./assets/results/06.png" width=250>
+  <img src = "./assets/results/07.png" width=250>
+  <img src = "./assets/results/08.png" width=250>
 </p>
 
 <p align="center" display="flex">
-  <img src = "./result/Search3.png" width=250>
-  <img src = "./result/Details1.png" width=250>
-  <img src = "./result/Episodes.png" width=250>
+  <img src = "./assets/results/09.png" width=250>
+  <img src = "./assets/results/10.png" width=250>
+  <img src = "./assets/results/11.png" width=250>
 </p>
 
 <p align="center" display="flex">
-  <img src = "./result/Favorites.png" width=250>
-  <img src = "./result/Profile.png" width=250>
-  <img src = "./result/Notifications.png" width=250>
+  <img src = "./assets/results/12.png" width=250>
+  <img src = "./assets/results/13.png" width=250>
+  <img src = "./assets/results/14.png" width=250>
 </p>
 
 <p align="center" display="flex">
-  <img src = "./result/Config.png" width=250>
-  <img src = "./result/Edit_profile.png" width=250>
-  <img src = "./result/gif1.gif" width=250>
-</p>
-
-<p align="center" display="flex">
-  <img src = "./result/gif2.gif" width=250>
-  <img src = "./result/gif3.gif" width=250>
-  <img src = "./result/gif4.gif" width=250>
+  <img src = "./assets/results/16.png" width=250>
+  <img src = "./assets/results/17.png" width=250>
+  <img src = "./assets/results/18.png" width=250>
 </p>
 
 ## Valeu pela visita! 😉
