@@ -3,12 +3,12 @@ import { AuthPhone, UserData } from "@/utils/types";
 
 export const API = {
   sendAuthCode: async (phone: string) => {
-    if (phone === "79996712821") return { error: false, message: "Código enviado" };
+    if (phone === "79999999999") return { error: false, message: "Código enviado" };
     throw new Error("Erro ao enviar código");
   },
 
   verifyCode: async ({ phone, code }: AuthPhone) => {
-    if (phone === "79996712821") {
+    if (phone === "79999999999") {
       if (code === "918311") return { error: false, message: "", user: null };
       if (code === "918312") return { error: false, message: "", user: DATA.user };
 
