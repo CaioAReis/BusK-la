@@ -38,7 +38,9 @@ export const API = {
   },
 
   getDeliveryList: async (cityId: string) => {
-    const result = DATA.deliveryList.filter((city) => city.cityId === cityId);
+    const result = DATA.deliveryList.filter(
+      (delivery) => delivery.cityId === cityId && delivery.status === 0
+    );
     return { error: false, message: "", list: result };
   },
 

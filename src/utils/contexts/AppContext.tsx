@@ -24,6 +24,8 @@ interface ContextData {
 
 const AppContext = createContext<ContextData>({} as ContextData);
 
+export default AppContext;
+
 export function AppProvider({ children }: { children: ReactElement }) {
   const [isDark, setIsDark] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
