@@ -33,7 +33,7 @@ export default function RootLayout() {
     <AppProvider>
       <Box flex={1} backgroundColor="bg200">
         <SafeAreaView style={{ flex: 1 }}>
-          <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+          <Stack screenOptions={{ headerShown: false }}>
             <Stack.Screen name="(auth)" />
             <Stack.Screen name="(tabs)" />
           </Stack>
