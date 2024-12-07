@@ -6,40 +6,15 @@ import {
   Rubik_600SemiBold,
   Rubik_700Bold,
 } from "@expo-google-fonts/rubik";
-import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Box } from "@/components";
-import { ThemeProvider } from "@/theme";
-import AppContext from "@/utils/contexts/AppContext";
-import { DATA } from "@/utils/data";
-import { City, UserData } from "@/utils/types";
+import { AppProvider } from "@/utils/contexts/AppContext";
 
 export default function RootLayout() {
-  const [isDark, setIsDark] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [session, setSession] = useState<UserData | null>(null);
-  const [defaultCity, setDefaultCity] = useState<City>(DATA.citiesToWork[0]);
-
-  const providerValue = {
-    isDark,
-    setIsDark,
-
-    isLoading,
-    setIsLoading,
-
-    session,
-    setSession,
-
-    defaultCity,
-    setDefaultCity,
-  };
-
   const [loaded, error] = useFonts({
     Rubik_300Light,
     Rubik_400Regular,
@@ -55,22 +30,15 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider isDark={isDark}>
-        <AppContext.Provider value={providerValue}>
-          <BottomSheetModalProvider>
-            <Box flex={1} backgroundColor="bg200">
-              <SafeAreaView style={{ flex: 1 }}>
-                <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
-                  <Stack.Screen name="(auth)" />
-                  <Stack.Screen name="(tabs)" />
-                </Stack>
-                <StatusBar style={isDark ? "light" : "dark"} />
-              </SafeAreaView>
-            </Box>
-          </BottomSheetModalProvider>
-        </AppContext.Provider>
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <AppProvider>
+      <Box flex={1} backgroundColor="bg200">
+        <SafeAreaView style={{ flex: 1 }}>
+          <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="(auth)" />
+            <Stack.Screen name="(tabs)" />
+          </Stack>
+        </SafeAreaView>
+      </Box>
+    </AppProvider>
   );
 }
